@@ -31,7 +31,10 @@ hs_err_pid*
 
 # eclipse specific git ignore
 *.pydevproject
-.project
+
+#to be added back afterwards
+#.project
+
 .metadata
 bin/**
 tmp/**
@@ -41,7 +44,10 @@ tmp/**/*
 *.swp
 *~.nib
 local.properties
-.classpath
+
+#to be added back afterwards
+#.classpath
+
 .settings/
 .loadpath
 
