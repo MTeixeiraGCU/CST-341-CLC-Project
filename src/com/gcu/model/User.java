@@ -34,6 +34,7 @@ public class User {
 	//assignment constructor
 	public User(String firstName, String lastName, String email, String phoneNumber, String userName, String password) {
 		super();
+		//This is inside the constructor
 		this.firstName = firstName;
 		this.lastName = lastName;
 		this.email = email;
