@@ -1,4 +1,4 @@
-package com.gcu.dataService;
+package com.gcu.data;
 
 import java.sql.Connection;
 import java.sql.PreparedStatement;
@@ -14,7 +14,7 @@ import com.gcu.model.User;
  * @author Marc
  *
  */
-public class UserDataAccessService implements DataAccessService<User> {
+public class UserDataAccessService implements IDataAccessService<User> {
 
 	@Override
 	public User get(String userName) {
@@ -23,9 +23,9 @@ public class UserDataAccessService implements DataAccessService<User> {
 		try {
 			
 			//set up prepared SQL statement
-			String query = "SELECT * FROM users WHERE userName = ?";
+			String query = "SELECT * FROM users WHERE USER_NAME = ?";
 			PreparedStatement stmt = conn.prepareStatement(query);
-			stmt.setString(0, userName);
+			stmt.setString(1, userName);
 			
 			//execute statement and set the results
 			ResultSet result = stmt.executeQuery();
@@ -47,7 +47,7 @@ public class UserDataAccessService implements DataAccessService<User> {
 		}
 		catch(SQLException ex)
 		{
-			throw new RuntimeException("Could not connect to Databse while retrieveing user data!", ex);
+			throw new RuntimeException("Could not connect to Database while retrieveing user data!", ex);
 		}
 		return user;
 	}
@@ -60,8 +60,35 @@ public class UserDataAccessService implements DataAccessService<User> {
 
 	@Override
 	public void add(User t) {
-		// TODO Auto-generated method stub
-		
+		Connection conn = ConnectionManager.getConnection();
+		try {
+			
+			//set up prepared SQL statement
+			String query = "INSERT INTO users (FIRST_NAME, LAST_NAME, EMAIL, PHONE_NUMBER, USER_NAME, PASSWORD) VALUES (?, ?, ?, ?, ?, ?)";
+			PreparedStatement stmt = conn.prepareStatement(query);
+			stmt.setString(1, t.getFirstName());
+			stmt.setString(2, t.getLastName());
+			stmt.setString(3, t.getEmail());
+			stmt.setString(4, t.getPhoneNumber());
+			stmt.setString(5, t.getUserName());
+			stmt.setString(6, t.getPassword());
+			
+			//execute statement and set the results
+			int result = stmt.executeUpdate();
+			if(result == 0)
+			{
+				//TODO: Add error logic to handle user not being added instead of console print
+				System.out.println("Could not add user to the database!");
+			}
+			
+			//close up connections
+			stmt.close();
+			conn.close();
+		}
+		catch(SQLException ex)
+		{
+			throw new RuntimeException("Could not connect to Databse while retrieveing user data!", ex);
+		}
 	}
 
 	@Override

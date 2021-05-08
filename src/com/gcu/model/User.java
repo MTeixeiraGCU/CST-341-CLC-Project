@@ -43,6 +43,16 @@ public class User {
 		this.password = password;
 	}
 	
+	//method for checking password
+	public boolean ValidatePassword(String password)
+	{
+		if(this.password != password)
+		{
+			return false;
+		}
+		return true;
+	}
+	
 	//getters and setters
 	
 	public String getFirstName() {

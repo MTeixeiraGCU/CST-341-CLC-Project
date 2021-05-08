@@ -1,4 +1,4 @@
-package com.gcu.dataService;
+package com.gcu.data;
 
 import java.util.List;
 
@@ -9,7 +9,7 @@ import java.util.List;
  *
  * @param <T> The type of model object that the implementing class is designed for
  */
-public interface DataAccessService<T> {
+public interface IDataAccessService<T> {
 	
 	//Retrieve
 	T get(String id);

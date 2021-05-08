@@ -1,5 +1,6 @@
 package com.gcu.controller;
 
-public class LoginController {
+import com.gcu.business.UserBusinessService;
 
+public class LoginController {
 }
