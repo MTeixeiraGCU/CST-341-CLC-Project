@@ -33,7 +33,7 @@
         </div>
         
         <div class="form-group">
-	        <form:label path="phoneNumber">Middle Initial: </form:label>
+	        <form:label path="phoneNumber">Phone Number: </form:label>
         	<form:input path="phoneNumber"/> 
         	<div class="invalid-feedback">
         		<form:errors path="phoneNumber" />

@@ -11,14 +11,17 @@
 		        <div class="form-group">
 			        <form:label path="userName">User Name: </form:label> 
 			        <form:input path="userName"/>
+			        <div class="invalid-feedback">
+			        	<form:errors path="userName" />
+		        	</div>
 		        </div>
 		        <div class="form-group">
 			        <form:label path="password">Password: </form:label> 
-			        <form:input path="password"/> 
+			        <form:input path="password"/>
+			        <div class="invalid-feedback">
+			        	<form:errors path="password" />
+		        	</div> 
  			    </div>
-		        <div class="invalid-feedback">
-			        <form:errors path="*" />
-		        </div>
 		        <input class="btn btn-primary" type="submit" value="Submit"/>
 		  	</form:form>
 </div>
