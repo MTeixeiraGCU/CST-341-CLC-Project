@@ -4,7 +4,7 @@ import javax.validation.constraints.NotNull;
 import javax.validation.constraints.Size;
 
 /**
- * Class User is designed to hold information regarding a single logged in user account
+ * Class User is designed to hold information regarding a single registered user account
  *
  */
 public class User {

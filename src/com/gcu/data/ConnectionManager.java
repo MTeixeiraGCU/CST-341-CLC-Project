@@ -12,13 +12,16 @@ import java.sql.SQLException;
  */
 public class ConnectionManager {
 	private static final String url = "jdbc:mysql://localhost:3306/cst-341-clcproject";
+	
+	//these two variables must be added to the run configuration environment variables list for this class in order to work correctly
 	private static final String userName = System.getenv("MYSQL_USERNAME");
 	private static final String password = System.getenv("MYSQL_PASSWORD");
 	
+	//determines whether the jdbc driver was loaded yet
 	private static boolean loaded = false;
 	
 	/**
-	 * This method uses the local connection strings to create a connection to the persistence database
+	 * This method uses the local private connection string to create a connection to a mysql database
 	 * @return the created connection
 	 */
 	public static Connection getConnection()
@@ -37,6 +40,9 @@ public class ConnectionManager {
 		}
 	}
 	
+	/**
+	 * Method to load the jdbc mysql driver
+	 */
 	private static void LoadDriver()
 	{
 		try {
