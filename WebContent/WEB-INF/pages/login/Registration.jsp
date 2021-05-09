@@ -50,7 +50,7 @@
         
         <div class="form-group">
 	        <form:label path="password">Password: </form:label>
-	        <form:input path="password"/> 
+	        <form:password path="password"/> 
 	        <div class="invalid-feedback">
 	        	<form:errors path="password" />
 	        </div>

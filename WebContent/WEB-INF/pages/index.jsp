@@ -2,7 +2,7 @@
     pageEncoding="ISO-8859-1"%>
 
 <h1>
-	Welcome to the E-Book Store Application!
+	Welcome ${sessionScope.userName } to the E-Book Store Application!
 </h1>
 <hr/>
 

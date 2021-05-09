@@ -14,7 +14,7 @@ public class UserBusinessService {
 	 * This method takes a users login and compares it with the information in the database
 	 * @param userName the current users login name
 	 * @param password the current users password
-	 * @return will return true if the login infor matches, false otherwise
+	 * @return will return true if the login information matches, false otherwise
 	 */
 	public boolean LoginUser(String userName, String password)
 	{
@@ -27,7 +27,7 @@ public class UserBusinessService {
 		{
 			return false;
 		}
-		else if(user.ValidatePassword(password))
+		else if(!user.ValidatePassword(password))
 		{
 			return false;
 		}

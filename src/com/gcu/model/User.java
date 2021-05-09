@@ -58,14 +58,19 @@ public class User {
 		this.password = password;
 	}
 	
-	//method for checking password
+	/**
+	 * This method checks the given password to the stored one
+	 * 
+	 * @param password the password to compare to
+	 * @return true if the passwords match, false otherwise
+	 */
 	public boolean ValidatePassword(String password)
 	{
-		if(this.password != password)
+		if(this.password.equals(password))
 		{
-			return false;
+			return true;
 		}
-		return true;
+		return false;
 	}
 	
 	//getters and setters
