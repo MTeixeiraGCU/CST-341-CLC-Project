@@ -45,7 +45,7 @@ public class UserBusinessService {
 	 * @param userName
 	 * @param password
 	 */
-	public void RegisterUser(String firstName, String lastName, String email, String phoneNumber, String userName, String password)
+	public boolean RegisterUser(String firstName, String lastName, String email, String phoneNumber, String userName, String password)
 	{
 		//get a data service
 		UserDataAccessService dataService = new UserDataAccessService();
@@ -57,12 +57,12 @@ public class UserBusinessService {
 		{
 			//add them to the database
 			dataService.add(newUser);
+			return true;
 		}
 		catch(Exception ex)
 		{
 			throw new RuntimeException("Could not add user to the database", ex);
 		}
-
 	}
 	
 	/**

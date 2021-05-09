@@ -1,5 +1,40 @@
 package com.gcu.controller;
 
-public class RegistrationController {
+import javax.validation.Valid;
+import javax.validation.constraints.Email;
+import javax.validation.constraints.NotNull;
+import javax.validation.constraints.Size;
+import org.springframework.stereotype.Controller;
+import org.springframework.validation.BindingResult;
+import org.springframework.web.bind.annotation.ModelAttribute;
+import org.springframework.web.bind.annotation.RequestMapping;
+import org.springframework.web.bind.annotation.RequestMethod;
+import org.springframework.web.servlet.ModelAndView;
+import com.gcu.business.UserBusinessService;
+import com.gcu.model.User;
 
-}
+
+@Controller
+	public class RegistrationController {
+		
+		@RequestMapping (path= "/register",method=RequestMethod.GET)	
+		public ModelAndView Navtoregister() {
+			return new ModelAndView("Registration", "user", new User());
+		}
+		@RequestMapping(path="/registerUser", method = RequestMethod.POST)
+		public ModelAndView registerUser(@ModelAttribute("user") @Valid User user, BindingResult result) {
+			if(result.hasErrors()) {
+				return new ModelAndView("Registration", "user", user);
+			} else {
+				UserBusinessService userService= new UserBusinessService();
+				if(userService.RegisterUser(user.getFirstName(), user.getLastName(), user.getEmail(), user.getPhoneNumber(), user.getUserName(), user.getPassword()))
+						{
+					return new ModelAndView("RegisterationComplete", "user", user);
+						}
+				else {
+					return new ModelAndView("Registration", "user", user);
+				}
+				
+			}
+		}
+	}
