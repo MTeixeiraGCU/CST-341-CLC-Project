@@ -8,7 +8,25 @@
 	</definition>
 	
 -->
-    <definition name="*" extends="DefaultTemplate">
-    	<put-attribute name="body" value="/WEB-INF/pages/{1}.jsp" />
+    <definition name="index" extends="DefaultTemplate">
+    	<put-attribute name="body" value="/WEB-INF/pages/index.jsp" />
+    </definition>
+    <definition name="Login" extends="DefaultTemplate">
+    	<put-attribute name="body" value="/WEB-INF/pages/login/Login.jsp" />
+    </definition>
+    <definition name="Registration" extends="DefaultTemplate">
+    	<put-attribute name="body" value="/WEB-INF/pages/login/Registration.jsp" />
+    </definition>
+    <definition name="LoginSuccess" extends="DefaultTemplate">
+    	<put-attribute name="body" value="/WEB-INF/pages/login/LoginSuccess.jsp" />
+    </definition>
+    <definition name="RegistrationSuccess" extends="DefaultTemplate">
+    	<put-attribute name="body" value="/WEB-INF/pages/login/RegistrationSuccess.jsp" />
+    </definition>
+    <definition name="About" extends="DefaultTemplate">
+    	<put-attribute name="body" value="/WEB-INF/pages/About.jsp" />
+    </definition>
+    <definition name="Contact" extends="DefaultTemplate">
+    	<put-attribute name="body" value="/WEB-INF/pages/Contact.jsp" />
     </definition>
 </tiles-definitions>

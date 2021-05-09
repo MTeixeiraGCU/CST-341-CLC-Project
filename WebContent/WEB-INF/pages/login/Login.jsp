@@ -10,11 +10,11 @@
 			<form:form method="POST" action="loginUser" modelAttribute ="user">		    
 		        <div class="form-group">
 			        <form:label path="userName">User Name: </form:label> 
-			        <form:input class="" path="userName"/>
+			        <form:input path="userName"/>
 		        </div>
 		        <div class="form-group">
 			        <form:label path="password">Password: </form:label> 
-			        <form:input class="" path="password"/> 
+			        <form:input path="password"/> 
  			    </div>
 		        <div class="invalid-feedback">
 			        <form:errors path="*" />

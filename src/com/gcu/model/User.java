@@ -1,5 +1,8 @@
 package com.gcu.model;
 
+import javax.validation.constraints.NotNull;
+import javax.validation.constraints.Size;
+
 /**
  * Class User is designed to hold information regarding a single logged in user account
  *
@@ -7,16 +10,28 @@ package com.gcu.model;
 public class User {
 
 	//private fields
+	
+	@NotNull(message="You must enter a value for the first name!")
+	@Size(min=2, max=25, message="First name must be be at least 2 letters but less than 26!")
 	private String firstName;
 	
+	@NotNull(message="You must enter a value for the last name!")
+	@Size(min=2, max=25, message="Last name must be be at least 2 letters but less than 26!")
 	private String lastName;
 	
+	@NotNull(message="You must enter a value for your email!")
+	@Size(min=5, max=50, message="Email name must be be at least 5 characters!")
 	private String email;
 	
+	@Size(min=7, max=11, message="Invalid number of digits")
 	private String phoneNumber;
 	
+	@NotNull(message="You must enter a value for your User Name!")
+	@Size(min=4, max=25, message="User Name must be be at least 4 letters but less than 26!")
 	private String userName;
 	
+	@NotNull(message="You must enter a value for your password!")
+	@Size(min=5, max=30, message="Password must be at least 5 characters!")
 	private String password;
 
 	//default constructor

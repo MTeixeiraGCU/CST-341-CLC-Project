@@ -8,8 +8,14 @@
 	<spring:url value="/resources/css/main.css" var="mainCss" />
 	<spring:url value="/resources/js/main.js" var="mainJs" />
 	
+	<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css"/>
 	<link href="${mainCss}" rel="stylesheet" />
 	<script src="${mainJs}"></script>
+	
+	<style>
+		
+	</style>
+	
 </head>
 
 <body>
