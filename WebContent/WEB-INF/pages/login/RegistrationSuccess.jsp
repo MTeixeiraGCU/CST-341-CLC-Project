@@ -9,9 +9,9 @@
 	<div class="col-md-6 offset-md-3">
 		Welcome ${user.getUserName() }!	
 		<br>
-		<a href="">Go to Home Page</a> <%-- Need to update Home Page Path --%>
+		<a href="index">Go to Home Page</a>
 		<br>
-		<a href="">Logout?</a> <%-- Need to update Logout Path --%>
+		<a href="login">Go to Login</a> 
 	</div>
 	</div>
 
