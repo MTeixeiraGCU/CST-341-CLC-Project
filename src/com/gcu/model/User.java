@@ -1,6 +1,7 @@
 package com.gcu.model;
 
 import javax.validation.constraints.NotNull;
+import javax.validation.constraints.Pattern;
 import javax.validation.constraints.Size;
 
 /**
@@ -23,7 +24,7 @@ public class User {
 	@Size(min=5, max=50, message="Email name must be be at least 5 characters!")
 	private String email;
 	
-	@Size(min=7, max=11, message="Invalid number of digits")
+	@Pattern(regexp="\\(\\d{3}\\)\\d{3}-\\d{4}",message="Phone number must be in the formt (XXX)XXX-XXXX")
 	private String phoneNumber;
 	
 	@NotNull(message="You must enter a value for your User Name!")

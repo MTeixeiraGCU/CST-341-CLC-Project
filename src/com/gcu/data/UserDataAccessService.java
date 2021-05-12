@@ -87,7 +87,7 @@ public class UserDataAccessService implements IDataAccessService<User> {
 		}
 		catch(SQLException ex)
 		{
-			throw new RuntimeException("Could not connect to Databse while retrieveing user data!", ex);
+			throw new RuntimeException("Could not connect to database while adding user data!", ex);
 		}
 	}
 
