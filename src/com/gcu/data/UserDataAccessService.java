@@ -92,7 +92,7 @@ public class UserDataAccessService implements IDataAccessService<User> {
 	}
 
 	@Override
-	public void update(User t, String[] params) {
+	public void update(User t) {
 		// TODO Auto-generated method stub
 		
 	}

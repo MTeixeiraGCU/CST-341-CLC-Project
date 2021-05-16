@@ -7,3 +7,4 @@
 <hr/>
 
 <p>COMING SOON: List of books to view and search!</p>
+<p>${msg}</p>

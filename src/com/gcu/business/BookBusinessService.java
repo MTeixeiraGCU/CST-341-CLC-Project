@@ -1,6 +1,5 @@
 package com.gcu.business;
 
-import java.sql.Date;
 import java.util.List;
 
 import org.springframework.beans.factory.annotation.Autowired;
@@ -24,9 +23,13 @@ public class BookBusinessService implements BookBusinessServiceInterface {
 	}
 
 	@Override
-	public void addBook(String isbn, String title, String author, String publisher, Date publicationDate, String image) {
-		EBook eBook = new EBook(isbn, title, author, publisher, publicationDate, image);
-		bookDataAccessService.add(eBook);
+	public void addBook(EBook eBook) {
+		if(bookDataAccessService.get(eBook.getIsbn()) != null) {
+			bookDataAccessService.update(eBook);
+		}
+		else {
+			bookDataAccessService.add(eBook);
+		}
 	}
 	
 }

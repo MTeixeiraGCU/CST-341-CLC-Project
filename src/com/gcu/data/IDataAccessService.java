@@ -21,7 +21,7 @@ public interface IDataAccessService<T> {
 	void add(T t);
 	
 	//Update
-	void update(T t, String[] params);
+	void update(T t);
 	
 	//Delete
 	void delete(T t);

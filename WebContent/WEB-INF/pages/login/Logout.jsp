@@ -9,7 +9,7 @@
 	<div class="col-md-6 offset-md-3">
 		<h4>Congratulations, you have been logged out!</h4>
 		<br>
-		<a href="Login">Return to Login Page?</a> 
+		<a href="login">Return to Login Page?</a> 
 		<br>
 	</div>
 	</div>

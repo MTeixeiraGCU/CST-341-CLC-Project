@@ -4,6 +4,7 @@ import java.sql.Connection;
 import java.sql.PreparedStatement;
 import java.sql.ResultSet;
 import java.sql.SQLException;
+import java.util.ArrayList;
 import java.util.List;
 
 import com.gcu.model.EBook;
@@ -52,8 +53,38 @@ public class BookDataAccessService implements IDataAccessService<EBook> {
 
 	@Override
 	public List<EBook> getAll() {
-		// TODO Auto-generated method stub
-		return null;
+		Connection conn = ConnectionManager.getConnection();
+		List<EBook> eBooks = new ArrayList<EBook>();
+		try {
+			
+			//set up prepared SQL statement
+			String query = "SELECT * FROM books";
+			PreparedStatement stmt = conn.prepareStatement(query);
+			
+			//execute statement and set the results
+			ResultSet result = stmt.executeQuery();
+			while(result.next())
+			{
+				EBook eBook = new EBook();
+				eBook.setTitle(result.getString("TITLE"));
+				eBook.setAuthor(result.getString("AUTHOR"));
+				eBook.setPublisher(result.getString("PUBLISHER"));
+				eBook.setPublicationDate(result.getDate("PUBLICATION_DATE"));
+				eBook.setIsbn(result.getString("ISBN"));
+				eBook.setImage(result.getString("IMAGE"));
+				eBooks.add(eBook);
+			}
+			
+			//close up connections
+			result.close();
+			stmt.close();
+			conn.close();
+		}
+		catch(SQLException ex)
+		{
+			throw new RuntimeException("Could not connect to Database while retrieveing all EBooks data!", ex);
+		}
+		return eBooks;
 	}
 
 	@Override
@@ -91,9 +122,37 @@ public class BookDataAccessService implements IDataAccessService<EBook> {
 	}
 
 	@Override
-	public void update(EBook t, String[] params) {
-		// TODO Auto-generated method stub
+	public void update(EBook t) {
+		Connection conn = ConnectionManager.getConnection();
 		
+		try {
+			
+			//set up prepared SQL statement
+			String query = "UPDATE books SET TITLE = ?, AUTHOR = ?, PUBLISHER = ?, PUBLICATION_DATE = ?, IMAGE = ? WHERE ISBN = ?";
+			PreparedStatement stmt = conn.prepareStatement(query);
+			stmt.setString(1, t.getTitle());
+			stmt.setString(2, t.getAuthor());
+			stmt.setString(3, t.getPublisher());
+			stmt.setDate(4, t.getPublicationDate());
+			stmt.setString(5, t.getImage());
+			stmt.setString(6, t.getIsbn());
+			
+			//execute statement and set the results
+			int result = stmt.executeUpdate();
+			if(result == 0)
+			{
+				//TODO: Add error logic to handle books not being added instead of console print
+				System.out.println("Could not add EBook to the database!");
+			}
+			
+			//close up connections
+			stmt.close();
+			conn.close();
+		}
+		catch(SQLException ex)
+		{
+			throw new RuntimeException("Could not connect to Database while updating eBook!", ex);
+		}	
 	}
 
 	@Override

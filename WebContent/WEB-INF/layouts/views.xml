@@ -20,6 +20,9 @@
     <definition name="BookList" extends="DefaultTemplate">
     	<put-attribute name="body" value="/WEB-INF/pages/bookView/BookList.jsp" />
     </definition>
+    <definition name="AddBook" extends="DefaultTemplate">
+    	<put-attribute name="body" value="/WEB-INF/pages/bookView/AddBook.jsp" />
+    </definition>
     <definition name="Registration" extends="DefaultTemplate">
     	<put-attribute name="body" value="/WEB-INF/pages/login/Registration.jsp" />
     </definition>
