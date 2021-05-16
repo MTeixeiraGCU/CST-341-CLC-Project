@@ -12,6 +12,7 @@
 				<a <c:if test="${requestScope['javax.servlet.forward.request_uri'] == '/CLCProject/register'}">class="active"</c:if>href="register">Register</a>
 			</c:when>
 			<c:otherwise>
+				<a href="bookView/bookList">eBooks</a>
 				<a href="logout">Logout</a>
 			</c:otherwise>
 	  	</c:choose>

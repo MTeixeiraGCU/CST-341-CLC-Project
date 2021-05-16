@@ -16,5 +16,5 @@ public interface BookBusinessServiceInterface {
 	
 	public List<EBook> getAllBooks();
 	
-	public void addBook(String isbn, String title, String author, String publisher, Date publicationDate);
+	public void addBook(String isbn, String title, String author, String publisher, Date publicationDate, String image);
 }

@@ -24,8 +24,8 @@ public class BookBusinessService implements BookBusinessServiceInterface {
 	}
 
 	@Override
-	public void addBook(String isbn, String title, String author, String publisher, Date publicationDate) {
-		EBook eBook = new EBook(isbn, title, author, publisher, publicationDate);
+	public void addBook(String isbn, String title, String author, String publisher, Date publicationDate, String image) {
+		EBook eBook = new EBook(isbn, title, author, publisher, publicationDate, image);
 		bookDataAccessService.add(eBook);
 	}
 	
