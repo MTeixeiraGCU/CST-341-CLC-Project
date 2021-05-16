@@ -2,6 +2,7 @@ package com.gcu.controller;
 
 import com.gcu.model.UserLogin;
 import com.gcu.business.UserBusinessService;
+import com.gcu.business.UserBusinessServiceInterface;
 
 import javax.servlet.http.HttpSession;
 import javax.validation.Valid;
@@ -21,6 +22,9 @@ public class LoginController {
 	@Autowired
 	private HttpSession session;
 	
+	@Autowired
+	private UserBusinessServiceInterface userBusinessService;
+	
 	@RequestMapping (path= "/login",method=RequestMethod.GET)	
 	public ModelAndView NavToLogin() {
 		return new ModelAndView("Login", "user", new UserLogin());
@@ -32,10 +36,7 @@ public class LoginController {
 			return new ModelAndView("Login", "user", user);
 		} 
 		else {
-			//TODO: this line can be replaced by DI in the next milestone
-			UserBusinessService userService= new UserBusinessService();
-			
-			if(userService.LoginUser(user.getUserName(), user.getPassword())) {
+			if(userBusinessService.LoginUser(user.getUserName(), user.getPassword())) {
 				session.setAttribute("userName", user.getUserName());
 				return new ModelAndView("LoginSuccess", "user", user);
 			}

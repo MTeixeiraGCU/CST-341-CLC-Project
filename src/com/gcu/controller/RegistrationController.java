@@ -2,6 +2,7 @@ package com.gcu.controller;
 
 import javax.validation.Valid;
 
+import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.validation.BindingResult;
 import org.springframework.web.bind.annotation.ModelAttribute;
@@ -10,12 +11,16 @@ import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.servlet.ModelAndView;
 
 import com.gcu.business.UserBusinessService;
+import com.gcu.business.UserBusinessServiceInterface;
 import com.gcu.model.User;
 
 
 @Controller
 public class RegistrationController {
 		
+	@Autowired
+	private UserBusinessServiceInterface userBusinessService;
+	
 	@RequestMapping (path="/register", method=RequestMethod.GET)	
 	public ModelAndView Navtoregister() {
 		return new ModelAndView("Registration", "user", new User());
@@ -27,8 +32,7 @@ public class RegistrationController {
 			return new ModelAndView("Registration", "user", user);
 		} 
 		else {
-			UserBusinessService userService= new UserBusinessService();
-			if(userService.RegisterUser(user.getFirstName(), user.getLastName(), user.getEmail(), user.getPhoneNumber(), user.getUserName(), user.getPassword())) {
+			if(userBusinessService.RegisterUser(user.getFirstName(), user.getLastName(), user.getEmail(), user.getPhoneNumber(), user.getUserName(), user.getPassword())) {
 				return new ModelAndView("RegistrationSuccess", "user", user);
 			} 
 			else {

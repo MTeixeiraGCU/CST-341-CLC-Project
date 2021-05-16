@@ -1,5 +1,8 @@
 package com.gcu.business;
 
+import org.springframework.beans.factory.annotation.Autowired;
+
+import com.gcu.data.IDataAccessService;
 import com.gcu.data.UserDataAccessService;
 import com.gcu.model.User;
 
@@ -8,7 +11,10 @@ import com.gcu.model.User;
  * @author Marc
  *
  */
-public class UserBusinessService {
+public class UserBusinessService implements UserBusinessServiceInterface{
+	
+	@Autowired
+	private IDataAccessService<User> userDataAccessService;
 	
 	/**
 	 * This method takes a users login and compares it with the information in the database
@@ -19,8 +25,7 @@ public class UserBusinessService {
 	public boolean LoginUser(String userName, String password)
 	{
 		//get the user we are interested in
-		UserDataAccessService dataService = new UserDataAccessService();
-		User user = dataService.get(userName);
+		User user = userDataAccessService.get(userName);
 		
 		//check for a valid user and a matching password
 		if(user == null)
@@ -47,16 +52,13 @@ public class UserBusinessService {
 	 */
 	public boolean RegisterUser(String firstName, String lastName, String email, String phoneNumber, String userName, String password)
 	{
-		//get a data service
-		UserDataAccessService dataService = new UserDataAccessService();
-		
 		//create a new user
 		User newUser = new User(firstName, lastName, email, phoneNumber, userName, password);
 		
 		try
 		{
 			//add them to the database
-			dataService.add(newUser);
+			userDataAccessService.add(newUser);
 			return true;
 		}
 		catch(Exception ex)
@@ -72,11 +74,8 @@ public class UserBusinessService {
 	 */
 	public boolean CheckDuplicateUserName(String userName)
 	{
-		//get a data service
-		UserDataAccessService dataService = new UserDataAccessService();
-		
 		//grab the user if it exists
-		User user = dataService.get(userName);
+		User user = userDataAccessService.get(userName);
 		
 		//check for duplicate user
 		if(user != null)
