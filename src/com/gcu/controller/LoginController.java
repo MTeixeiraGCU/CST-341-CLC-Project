@@ -50,6 +50,6 @@ public class LoginController {
 	@RequestMapping (path= "/logout",method=RequestMethod.GET)	
 	public String LogoutUser() {
 		session.removeAttribute("userName");
-		return "index";
+		return "Logout";
 	}
 }
