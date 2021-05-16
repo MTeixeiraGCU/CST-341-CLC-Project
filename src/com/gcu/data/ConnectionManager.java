@@ -46,7 +46,7 @@ public class ConnectionManager {
 	private static void LoadDriver()
 	{
 		try {
-		    Class.forName("com.mysql.jdbc.Driver");
+		    Class.forName("com.mysql.cj.jdbc.Driver");
 		    loaded= true;
 		} catch (ClassNotFoundException e) {
 		    throw new IllegalStateException("Cannot find the driver in the classpath!", e);
