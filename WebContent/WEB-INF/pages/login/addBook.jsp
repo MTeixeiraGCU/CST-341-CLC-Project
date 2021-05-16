@@ -13,9 +13,9 @@
          <form:input class="form-control" path="title"></form:input> 
         <form:errors path="title"/>
      </div>
-        <div class="form-group">
+        <div class="form-group"> 
          <form:label path="author">Author: </form:label>
-          <form:input class="form-control" path="author"></form:input> 
+          <form:input class="form-control" path="author"></form:input>  
           <form:errors path="author"/>
           </div>
          <div class="form-group">
