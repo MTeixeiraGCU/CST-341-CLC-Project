@@ -35,6 +35,7 @@ public class BookDataAccessService implements IDataAccessService<EBook> {
 				eBook.setPublisher(result.getString("PUBLISHER"));
 				eBook.setPublicationDate(result.getDate("PUBLICATION_DATE"));
 				eBook.setIsbn(result.getString("ISBN"));
+				eBook.setImage(result.getString("IMAGE"));
 			}
 			
 			//close up connections
@@ -61,13 +62,14 @@ public class BookDataAccessService implements IDataAccessService<EBook> {
 		try {
 			
 			//set up prepared SQL statement
-			String query = "INSERT INTO books (TITLE, AUTHOR, PUBLISHER, PUBLICATION_DATE, ISBN) VALUES (?, ?, ?, ?, ?)";
+			String query = "INSERT INTO books (TITLE, AUTHOR, PUBLISHER, PUBLICATION_DATE, IMAGE, ISBN) VALUES (?, ?, ?, ?, ?, ?)";
 			PreparedStatement stmt = conn.prepareStatement(query);
 			stmt.setString(1, t.getTitle());
 			stmt.setString(2, t.getAuthor());
 			stmt.setString(3, t.getPublisher());
 			stmt.setDate(4, t.getPublicationDate());
-			stmt.setString(5, t.getIsbn());
+			stmt.setString(5, t.getImage());
+			stmt.setString(6, t.getIsbn());
 			
 			//execute statement and set the results
 			int result = stmt.executeUpdate();

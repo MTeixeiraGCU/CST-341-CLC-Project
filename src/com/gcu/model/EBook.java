@@ -20,6 +20,8 @@ public class EBook {
 	@NotNull(message="There must be an author for the book!")
 	String author;
 	
+	String image;
+	
 	String publisher;
 	
 	@DateTimeFormat(pattern="ddMMyyyy")
@@ -32,6 +34,7 @@ public class EBook {
 		this.author = "";
 		this.publisher = "";
 		this.publicationDate = new Date(0);
+		this.image = "";
 	}
 	
 	//assignment constructor
@@ -39,13 +42,15 @@ public class EBook {
 			@NotNull(message = "There must be a valid ISBN for this book!") @Size(min = 10, max = 10, message = "The ISBN must be 10 characters long!") String isbn,
 			@NotNull(message = "Book must contain a title!") String title,
 			@NotNull(message = "There must be an author for the book!") String author, String publisher,
-			@DateTimeFormat(pattern="ddMMyyyy") Date publicationDate) {
+			@DateTimeFormat(pattern="ddMMyyyy") Date publicationDate,
+			String image) {
 		super();
 		this.isbn = isbn;
 		this.title = title;
 		this.author = author;
 		this.publisher = publisher;
 		this.publicationDate = publicationDate;
+		this.image = image;
 	}
 
 	
@@ -89,4 +94,13 @@ public class EBook {
 	public void setPublicationDate(Date publicationDate) {
 		this.publicationDate = publicationDate;
 	}
+
+	public String getImage() {
+		return image;
+	}
+
+	public void setImage(String image) {
+		this.image = image;
+	}
+	
 }
