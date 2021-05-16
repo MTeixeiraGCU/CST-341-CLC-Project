@@ -7,55 +7,68 @@
 	<hr/>
 	
 	<form:form method="POST" action="registerUser" modelAttribute ="user">
-
-    	<div class="form-group">
-	        <form:label path="firstName" >First Name: </form:label>
-	        <form:input path="firstName"/> 
-	        <div class="invalid-feedback">
-		        <form:errors path="firstName" />
+		<table style="with: 80%">
+		
+		<tr>
+    	 <td><div class="form-group"></td>
+	         <td><form:label path="firstName" >First Name: </form:label></td>
+	         <td><form:input path="firstName"/></td> 
+	         <td><div class="invalid-feedback"></td>
+		        <td><form:errors path="firstName" /></td>
 		    </div>
 	    </div>
-        
-        <div class="form-group">
-	        <form:label path="lastName">Last Name: </form:label> 
-	        <form:input  path="lastName"/>
-	        <div class="invalid-feedback">
-	        	<form:errors path="lastName" />
+		</tr>        
+		
+		<tr>
+         <td><div class="form-group"></td>
+	         <td><form:label path="lastName">Last Name: </form:label></td> 
+	         <td><form:input  path="lastName"/></td>
+	         <td><div class="invalid-feedback"></td>
+	        	 <td><form:errors path="lastName" /></td>
 	        </div>
         </div>
-
-        <div class="form-group">
-	        <form:label path="email">Email: </form:label>
-	        <form:input class="" path="email"/> 
-	        <div class="invalid-feedback">
-		        <form:errors path="email" />
+		</tr>
+ 		
+ 		<tr>
+         <td><div class="form-group"></td>
+	         <td><form:label path="email">Email: </form:label></td>
+	         <td><form:input class="" path="email"/></td> 
+	        <td><div class="invalid-feedback"></td>
+		         <td><form:errors path="email" /></td>
 		    </div>
         </div>
-        
-        <div class="form-group">
-	        <form:label path="phoneNumber">Phone Number: </form:label>
-        	<form:input path="phoneNumber"/> 
-        	<div class="invalid-feedback">
-        		<form:errors path="phoneNumber" />
+		</tr>
+		
+		<tr>
+         <td><div class="form-group"></td>
+	         <td><form:label path="phoneNumber">Phone Number: </form:label></td>
+        	 <td><form:input path="phoneNumber"/></td> 
+        	 <td><div class="invalid-feedback"></td>
+        		 <td><form:errors path="phoneNumber" /></td>
         	</div>
         </div>
-        
-		<div class="form-group">
-	        <form:label path="userName">User Name: </form:label>
-	        <form:input path="userName"/> 
-	        <div class="invalid-feedback">
-	        	<form:errors path="userName"/>
+ 		</tr>
+ 		
+ 		<tr>        
+		 <td><div class="form-group"></td>
+	         <td><form:label path="userName">User Name: </form:label></td>
+	         <td><form:input path="userName"/></td> 
+	         <td><div class="invalid-feedback"></td>
+	        	 <td><form:errors path="userName"/></td>
 	        </div>
         </div>
-        
-        <div class="form-group">
-	        <form:label path="password">Password: </form:label>
-	        <form:password path="password"/> 
-	        <div class="invalid-feedback">
-	        	<form:errors path="password" />
+ 		</tr>
+ 		
+ 		<tr>        
+         <td><div class="form-group"></td>
+	        <td><form:label path="password">Password: </form:label></td>
+	         <td><form:password path="password"/></td> 
+	         <td><div class="invalid-feedback"></td>
+	        	 <td><form:errors path="password" /></td>
 	        </div>
         </div>
-        
+		</tr>    
+		</table>
         <input type="submit" class="btn btn-primary" value="Submit" />
         
 	</form:form>
