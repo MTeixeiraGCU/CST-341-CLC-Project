@@ -14,17 +14,17 @@ public class EBook {
 	@Size(min=11,max=11,message="The ISBN must be 11 characters long!")
 	String isbn;
 	
-	@NotNull(message="Book must contain a title!")
+	@Size(min=1,message="Book must contain a title!")
 	String title;
 	
-	@NotNull(message="There must be an author for the book!")
+	@Size(min=1, message="There must be an author for the book!")
 	String author;
 	
 	String image;
 	
 	String publisher;
 	
-	@DateTimeFormat(pattern="MMddyyyy")
+	@DateTimeFormat(pattern="yyy-MM-dd")
 	Date publicationDate;
 
 	public EBook()
@@ -40,9 +40,9 @@ public class EBook {
 	//assignment constructor
 	public EBook(
 			@NotNull(message = "There must be a valid ISBN for this book!") @Size(min = 11, max = 11, message = "The ISBN must be 11 characters long!") String isbn,
-			@NotNull(message = "Book must contain a title!") String title,
-			@NotNull(message = "There must be an author for the book!") String author, String publisher,
-			@DateTimeFormat(pattern="MMddyyyy") Date publicationDate,
+			@Size(min=1, message = "Book must contain a title!") String title,
+			@Size(min=1, message = "There must be an author for the book!") String author, String publisher,
+			@DateTimeFormat(pattern="yyyy-MM-dd") Date publicationDate,
 			String image) {
 		super();
 		this.isbn = isbn;
