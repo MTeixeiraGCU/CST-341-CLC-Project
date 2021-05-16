@@ -34,6 +34,10 @@
     <bean id="userDataAccessService" class="com.gcu.data.UserDataAccessService" scope="session">
     	<aop:scoped-proxy proxy-target-class="false" />
     </bean>
+    
+    <bean id="bookDataAccessService" class="com.gcu.data.BookDataAccessService" scope="session">
+    	<aop:scoped-proxy proxy-target-class="false" />
+    </bean>
    
    	<bean id="loginController" class="com.gcu.controller.LoginController" />
    	
