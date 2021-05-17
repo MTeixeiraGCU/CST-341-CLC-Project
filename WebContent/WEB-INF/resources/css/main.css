@@ -23,7 +23,7 @@ body {
 
 /* style for each cell on the book list */
 table.bookCards td {
-	padding: 100px;
+	padding: 30px;
 }
 
 .footer {
