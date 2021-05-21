@@ -8,6 +8,20 @@
   <p>If you are ready to start reviewing the most popular titles, please start downloading now.</p>
 </div>
 
+<h2>Book search and selection</h2>
+<p>Click on the button to open the dropdown menu, and use the input field to search for a specific book title.</p>
+
+<div class="dropdown">
+  <button onclick="myFunction()" class="dropbtn">Browse Books</button>
+  <div id="myDropdown" class="dropdown-content">
+    <input type="text" placeholder="Search.." id="myInput" onkeyup="filterFunction()">
+    <c:forEach var="book" items="${books}" varStatus="counter">
+    	<a href="editBook?isbn=${book.isbn}">${book.title}</a>
+    </c:forEach>
+
+  </div>
+</div>
+
 <table class="bookCards">
 	<tr>
 			<c:forEach var="book" items="${books}" varStatus="counter">
@@ -37,3 +51,36 @@
 	</tr>
 	
 </table>
+
+<script>
+	/* When the user clicks on the button,
+	toggle between hiding and showing the dropdown content */
+	function myFunction() {
+	  document.getElementById("myDropdown").classList.toggle("show");
+	  div = document.getElementById("myDropdown");
+	  a = div.getElementsByTagName("a");
+	  for (i = 0; i < a.length; i++) {
+		  if(i > 4) {
+			  a[i].style.display = "none";
+		  }
+	  }
+	}
+	
+	function filterFunction() {
+	  var input, filter, ul, li, a, i, counter;
+	  counter = 0;
+	  input = document.getElementById("myInput");
+	  filter = input.value.toUpperCase();
+	  div = document.getElementById("myDropdown");
+	  a = div.getElementsByTagName("a");
+	  for (i = 0; i < a.length; i++) {
+	    txtValue = a[i].textContent || a[i].innerText;
+	    if (txtValue.toUpperCase().indexOf(filter) > -1 && counter < 5) {
+	      a[i].style.display = "";
+	      counter++;
+	    } else {
+	      a[i].style.display = "none";
+	    }
+	  }
+	}
+</script>
