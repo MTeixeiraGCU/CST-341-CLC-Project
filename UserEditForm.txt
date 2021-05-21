@@ -1,0 +1,28 @@
+<!DOCTYPE html>
+<html>
+<body>
+
+<h2>Edit Profile</h2>
+
+<form action="/action_page.php" id="form1">
+
+  <label for="fname">First name:</label><br>
+  <input type="text" id="fname" name="fname"><br>
+  <label for="lname">Last name:</label><br>
+  <input type="text" id="lname" name="lname"><br>
+  <label for="address">Email Adress:</label><br>
+  <input type="text" id="address" email="address"><br>
+  <label for="pword">Password:</label><br>
+  <input type="text" id="pword" pword="Password"><br>
+  
+    <input type="submit" value="Submit">
+</form>
+  
+
+
+<p>Please allow all changes to be completed within 24 - 48 hours of time originally processed.</p>
+
+
+
+</body>
+</html>
