@@ -199,8 +199,11 @@ public class BookDataAccessService implements IDataAccessService<EBook> {
 
 	@Override
 	public void delete(EBook t) {
-		// TODO Auto-generated method stub
-		
+		String query = "DELETE FROM books WHERE ISBN = ?";
+		int result = jdbcTemplate.update(query, t.getIsbn());
+		if(result == 1) {
+			System.out.println("Row was removed from the database!");
+		}
 	}
 
 }

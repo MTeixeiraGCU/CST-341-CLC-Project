@@ -1,9 +1,6 @@
 package com.gcu.data;
 
-import java.sql.Connection;
-import java.sql.PreparedStatement;
-import java.sql.ResultSet;
-import java.sql.SQLException;
+import java.util.ArrayList;
 import java.util.List;
 
 import javax.sql.DataSource;
@@ -73,8 +70,11 @@ public class UserDataAccessService implements IDataAccessService<User> {
 
 	@Override
 	public List<User> getAll() {
-		// TODO Auto-generated method stub
-		return null;
+		List<User> users = new ArrayList<User>();
+		String query = "SELECT * FROM users";
+		users = jdbcTemplate.query(query, new UserRowMapper());
+		
+		return users;
 	}
 
 	@Override
@@ -119,14 +119,20 @@ public class UserDataAccessService implements IDataAccessService<User> {
 
 	@Override
 	public void update(User t) {
-		// TODO Auto-generated method stub
-		
+		String query = "UPDATE users SET FIRST_NAME = ?, LAST_NAME = ?, EMAIL = ?, PHONE_NUMBER = ?, PASSWORD = ? WHERE USER_NAME = ?";
+		int result = jdbcTemplate.update(query, t.getFirstName(), t.getLastName(), t.getEmail(), t.getPhoneNumber(), t.getPassword(), t.getUserName());
+		if(result == 1) {
+			System.out.println("Row was updated successfully!");
+		}
 	}
 
 	@Override
 	public void delete(User t) {
-		// TODO Auto-generated method stub
-		
+		String query = "DELETE FROM users WHERE USER_NAME = ?";
+		int result = jdbcTemplate.update(query, t.getUserName());
+		if(result == 1) {
+			System.out.println("Row was removed from the database!");
+		}
 	}
 
 }
