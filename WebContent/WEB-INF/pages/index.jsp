@@ -7,6 +7,11 @@
 <hr/>
 
 <p>NEW:	Book list view and adding/editing books!</p>
-<p>&nbsp &nbsp &nbsp -Login, then <a href="add">Click here</a> to add a new book!
-<p>COMING SOON: Book searching and account updating!</p>
+<p>&nbsp &nbsp &nbsp Login, then <a href="add">Click here</a> to add a new book!
+<p>NEW: Book searching and profile updating!</p>
+
+<p>COMING SOON: User admin roles, editing users from a list.</p>
+<p>COMING SOON: Possible eBook cart/library system
+
+
 <p class="invalid-feedback">${msg}</p>

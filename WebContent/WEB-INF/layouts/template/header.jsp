@@ -12,7 +12,8 @@
 				<a <c:if test="${requestScope['javax.servlet.forward.request_uri'] == '/CLCProject/register'}">class="active"</c:if>href="register">Register</a>
 			</c:when>
 			<c:otherwise>
-				<a href="bookList">eBooks</a>
+				<a <c:if test="${requestScope['javax.servlet.forward.request_uri'] == '/CLCProject/bookList'}">class="active"</c:if>href="bookList">eBooks</a>
+				<a <c:if test="${requestScope['javax.servlet.forward.request_uri'] == '/CLCProject/editUser'}">class="active"</c:if>href="editUser?userName=${sessionScope.userName}">Profile</a>
 				<a href="logout">Logout</a>
 			</c:otherwise>
 	  	</c:choose>

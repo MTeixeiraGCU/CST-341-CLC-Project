@@ -1,5 +1,7 @@
 package com.gcu.business;
 
+import java.util.List;
+
 import org.springframework.beans.factory.annotation.Autowired;
 
 import com.gcu.data.IDataAccessService;
@@ -24,10 +26,9 @@ public class UserBusinessService implements UserBusinessServiceInterface{
 	 */
 	public boolean LoginUser(String userName, String password)
 	{
-		System.out.println("Test1");
 		//get the user we are interested in
 		User user = userDataAccessService.get(userName);
-		System.out.println("Test4");
+		
 		//check for a valid user and a matching password
 		if(user == null)
 		{
@@ -86,5 +87,23 @@ public class UserBusinessService implements UserBusinessServiceInterface{
 		
 		//user does not exist
 		return false;
+	}
+
+	@Override
+	public User getUser(String userName) {
+		return userDataAccessService.get(userName);
+	}
+
+	@Override
+	public List<User> getUsers() {
+		return userDataAccessService.getAll();
+	}
+
+	@Override
+	public boolean UpdateUser(User user) {
+		userDataAccessService.update(user);
+		
+		//TODO: Add logic to detect failed attempt.
+		return true;
 	}
 }
