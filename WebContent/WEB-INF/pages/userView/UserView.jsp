@@ -9,6 +9,18 @@
 		 <table style="with: 80%">
 			 <tr>
 			 	<div class="form-group">
+			        <td> <form:input class="form-control" path="userName" hidden="true"></form:input> </td> 
+		        </div>
+		     </tr>
+		     
+		     <tr>
+			 	<div class="form-group">
+			        <td> <form:input class="form-control" path="password" hidden="true"></form:input> </td>
+		        </div>
+		     </tr>
+		     
+		     <tr>
+			 	<div class="form-group">
 			        <td> <form:label path="firstName">First Name: </form:label> </td>
 			        <td> <form:input class="form-control" path="firstName"></form:input> </td> 
 			        <td> <form:errors path="firstName"/> </td>
