@@ -24,9 +24,10 @@ public class UserBusinessService implements UserBusinessServiceInterface{
 	 */
 	public boolean LoginUser(String userName, String password)
 	{
+		System.out.println("Test1");
 		//get the user we are interested in
 		User user = userDataAccessService.get(userName);
-		
+		System.out.println("Test4");
 		//check for a valid user and a matching password
 		if(user == null)
 		{

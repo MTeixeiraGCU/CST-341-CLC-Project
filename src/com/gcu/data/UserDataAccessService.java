@@ -6,7 +6,13 @@ import java.sql.ResultSet;
 import java.sql.SQLException;
 import java.util.List;
 
+import javax.sql.DataSource;
+
+import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.jdbc.core.JdbcTemplate;
+
 import com.gcu.model.User;
+import com.gcu.model.UserRowMapper;
 
 /**
  * This class implements the DataAccessService object and is specifically used for CRUD operations on a User object
@@ -16,10 +22,19 @@ import com.gcu.model.User;
  */
 public class UserDataAccessService implements IDataAccessService<User> {
 
+	private JdbcTemplate jdbcTemplate;
+	
+	@Autowired
+	public void setDataSource(DataSource dataSource) {
+		jdbcTemplate = new JdbcTemplate(dataSource);
+	}
+	
 	@Override
 	public User get(String userName) {
-		Connection conn = ConnectionManager.getConnection();
+		//Connection conn = ConnectionManager.getConnection();
 		User user = null;
+		
+		/* Old JDBC Code
 		try {
 			
 			//set up prepared SQL statement
@@ -48,7 +63,11 @@ public class UserDataAccessService implements IDataAccessService<User> {
 		catch(SQLException ex)
 		{
 			throw new RuntimeException("Could not connect to Database while retrieveing user data!", ex);
-		}
+		}*/
+		
+		String query = "SELECT * FROM users WHERE USER_NAME = ?";
+		user = jdbcTemplate.queryForObject(query, new Object[] {userName}, new UserRowMapper());
+		
 		return user;
 	}
 
@@ -60,6 +79,7 @@ public class UserDataAccessService implements IDataAccessService<User> {
 
 	@Override
 	public void add(User t) {
+		/* Old JDBC Code
 		Connection conn = ConnectionManager.getConnection();
 		try {
 			
@@ -88,6 +108,12 @@ public class UserDataAccessService implements IDataAccessService<User> {
 		catch(SQLException ex)
 		{
 			throw new RuntimeException("Could not connect to database while adding user data!", ex);
+		}*/
+		
+		String query = "INSERT INTO users (FIRST_NAME, LAST_NAME, EMAIL, PHONE_NUMBER, USER_NAME, PASSWORD) VALUES (?, ?, ?, ?, ?, ?)";
+		int result = jdbcTemplate.update(query, t.getFirstName(), t.getLastName(), t.getEmail(), t.getPhoneNumber(), t.getUserName(), t.getPassword());
+		if(result == 1) {
+			System.out.println("Row was added successfully!");
 		}
 	}
 
