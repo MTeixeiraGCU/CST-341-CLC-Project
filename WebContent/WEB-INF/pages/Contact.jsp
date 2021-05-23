@@ -6,7 +6,7 @@
 </h1>
 
 <h3>Our Contact Information</h3>
-<ul>
+<ul style="list-style-position: inside;">
 	<li>Email: FakeEmail@FakeEmail.com</li>
 	<li>Phone: (111) 111-1111</li>
 	<li>3300 W Camelback Road</li>
