@@ -110,8 +110,8 @@ public class UserDataAccessService implements IDataAccessService<User> {
 			throw new RuntimeException("Could not connect to database while adding user data!", ex);
 		}*/
 		
-		String query = "INSERT INTO users (FIRST_NAME, LAST_NAME, EMAIL, PHONE_NUMBER, USER_NAME, PASSWORD) VALUES (?, ?, ?, ?, ?, ?)";
-		int result = jdbcTemplate.update(query, t.getFirstName(), t.getLastName(), t.getEmail(), t.getPhoneNumber(), t.getUserName(), t.getPassword());
+		String query = "INSERT INTO users (FIRST_NAME, LAST_NAME, EMAIL, PHONE_NUMBER, USER_NAME, PASSWORD, ROLE) VALUES (?, ?, ?, ?, ?, ?, ?)";
+		int result = jdbcTemplate.update(query, t.getFirstName(), t.getLastName(), t.getEmail(), t.getPhoneNumber(), t.getUserName(), t.getPassword(), t.getRole());
 		if(result == 1) {
 			System.out.println("Row was added successfully!");
 		}
@@ -119,8 +119,8 @@ public class UserDataAccessService implements IDataAccessService<User> {
 
 	@Override
 	public void update(User t) {
-		String query = "UPDATE users SET FIRST_NAME = ?, LAST_NAME = ?, EMAIL = ?, PHONE_NUMBER = ?, PASSWORD = ? WHERE USER_NAME = ?";
-		int result = jdbcTemplate.update(query, t.getFirstName(), t.getLastName(), t.getEmail(), t.getPhoneNumber(), t.getPassword(), t.getUserName());
+		String query = "UPDATE users SET FIRST_NAME = ?, LAST_NAME = ?, EMAIL = ?, PHONE_NUMBER = ?, PASSWORD = ?, ROLE = ? WHERE USER_NAME = ?";
+		int result = jdbcTemplate.update(query, t.getFirstName(), t.getLastName(), t.getEmail(), t.getPhoneNumber(), t.getPassword(), t.getRole(), t.getUserName());
 		if(result == 1) {
 			System.out.println("Row was updated successfully!");
 		}

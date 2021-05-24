@@ -12,6 +12,8 @@ public interface UserBusinessServiceInterface {
 	
 	public boolean CheckDuplicateUserName(String userName);
 	
+	public boolean CheckAdminStatus(String userName);
+	
 	public User getUser(String userName);
 	
 	public List<User> getUsers();

@@ -5,11 +5,10 @@ import java.util.List;
 import org.springframework.beans.factory.annotation.Autowired;
 
 import com.gcu.data.IDataAccessService;
-import com.gcu.data.UserDataAccessService;
 import com.gcu.model.User;
 
 /**
- * This class offers all application specific logic for handleing user information, registration, and login
+ * This class offers all application specific logic for handling user information, registration, and login
  * @author Marc
  *
  */
@@ -24,6 +23,7 @@ public class UserBusinessService implements UserBusinessServiceInterface{
 	 * @param password the current users password
 	 * @return will return true if the login information matches, false otherwise
 	 */
+	@Override
 	public boolean LoginUser(String userName, String password)
 	{
 		//get the user we are interested in
@@ -52,10 +52,11 @@ public class UserBusinessService implements UserBusinessServiceInterface{
 	 * @param userName
 	 * @param password
 	 */
+	@Override
 	public boolean RegisterUser(String firstName, String lastName, String email, String phoneNumber, String userName, String password)
 	{
 		//create a new user
-		User newUser = new User(firstName, lastName, email, phoneNumber, userName, password);
+		User newUser = new User(firstName, lastName, email, phoneNumber, userName, password, 0);
 		
 		try
 		{
@@ -74,6 +75,7 @@ public class UserBusinessService implements UserBusinessServiceInterface{
 	 * @param userName the user name to check for
 	 * @return will return true if there is a duplicate user, false if their is no user by that userName
 	 */
+	@Override
 	public boolean CheckDuplicateUserName(String userName)
 	{
 		//grab the user if it exists
@@ -89,21 +91,41 @@ public class UserBusinessService implements UserBusinessServiceInterface{
 		return false;
 	}
 
+	/**
+	 * returns a user object by the given userName.
+	 */
 	@Override
 	public User getUser(String userName) {
 		return userDataAccessService.get(userName);
 	}
 
+	/**
+	 * returns the entire list of users in the database.
+	 */
 	@Override
 	public List<User> getUsers() {
 		return userDataAccessService.getAll();
 	}
 
+	/**
+	 * updates a users infromation onto the database.
+	 */
 	@Override
 	public boolean UpdateUser(User user) {
 		userDataAccessService.update(user);
 		
 		//TODO: Add logic to detect failed attempt.
 		return true;
+	}
+
+	/**
+	 * This method checks the given user's role for admin status.
+	 */
+	@Override
+	public boolean CheckAdminStatus(String userName) {
+		if(this.getUser(userName).getRole() == 1) {
+			return true;
+		}
+		return false;
 	}
 }

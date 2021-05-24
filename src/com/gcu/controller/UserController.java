@@ -28,7 +28,9 @@ public class UserController {
 	
 	@RequestMapping(path="/editUser", method=RequestMethod.GET)
 	public ModelAndView edit(@RequestParam("userName") String userName, ModelMap model) {
-		if(session.getAttribute("userName") != null && session.getAttribute("userName").equals(userName))
+		
+		//allow access to update user profile if we are the logged in user or an admin.
+		if(session.getAttribute("userName") != null && (session.getAttribute("userName").equals(userName) || session.getAttribute("admin").equals(true)))
 		{
 			User user = userBusinessService.getUser(userName);
 			return new ModelAndView("UserView", "user", user);

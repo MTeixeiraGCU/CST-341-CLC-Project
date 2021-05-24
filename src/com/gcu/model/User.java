@@ -34,6 +34,8 @@ public class User {
 	@NotNull(message="You must enter a value for your password!")
 	@Size(min=5, max=30, message="Password must be at least 5 characters!")
 	private String password;
+	
+	private int role;
 
 	//default constructor
 	public User()
@@ -45,10 +47,11 @@ public class User {
 		this.phoneNumber = "";
 		this.userName = "";
 		this.password = "";
+		this.role = 0;
 	}
 	
 	//assignment constructor
-	public User(String firstName, String lastName, String email, String phoneNumber, String userName, String password) {
+	public User(String firstName, String lastName, String email, String phoneNumber, String userName, String password, int role) {
 		super();
 		//This is inside the constructor
 		this.firstName = firstName;
@@ -57,6 +60,7 @@ public class User {
 		this.phoneNumber = phoneNumber;
 		this.userName = userName;
 		this.password = password;
+		this.role = role;
 	}
 	
 	/**
@@ -122,6 +126,14 @@ public class User {
 
 	public void setPassword(String password) {
 		this.password = password;
+	}
+
+	public int getRole() {
+		return role;
+	}
+
+	public void setRole(int role) {
+		this.role = role;
 	}
 	
 }

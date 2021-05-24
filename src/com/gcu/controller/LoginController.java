@@ -38,6 +38,16 @@ public class LoginController {
 		else {
 			if(userBusinessService.LoginUser(user.getUserName(), user.getPassword())) {
 				session.setAttribute("userName", user.getUserName());
+				
+				//check for admin role
+				if(userBusinessService.CheckAdminStatus(user.getUserName())) {
+					session.setAttribute("admin", true);
+				}
+				else
+				{
+					session.setAttribute("admin", false);
+				}
+				
 				return new ModelAndView("LoginSuccess", "user", user);
 			}
 			else {
