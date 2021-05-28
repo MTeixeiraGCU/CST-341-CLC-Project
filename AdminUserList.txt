@@ -1,0 +1,48 @@
+**CST341 Admin userlist view
+
+
+**This can be placed on navigation bar for user log-on page**
+<!DOCTYPE html>
+<html>
+  <head>
+    <title>Userlist</title>
+  </head>
+  <body>
+    <button onclick="window.location.href='https://redirection to Admin userlist';">
+      Administration User List
+    </button>
+  </body>
+</html>
+
+**Here is the information that will be displayed on the webpage GUI**
+
+<html>
+<body>
+
+<h2>Administrator Userlist</h2>
+
+<table style="width:100%">
+  <tr>
+    <th>Firstname</th>
+    <th>Lastname</th> 
+    <th>Discription</th>
+  </tr>
+  <tr>
+    <td>Jill</td>
+    <td>Smith</td>
+    <td>N/A</td>
+  </tr>
+  <tr>
+    <td>Eve</td>
+    <td>Jackson</td>
+    <td>N/A</td>
+  </tr>
+  <tr>
+    <td>John</td>
+    <td>Doe</td>
+    <td>N/A</td>
+  </tr>
+</table>
+
+</body>
+</html>
