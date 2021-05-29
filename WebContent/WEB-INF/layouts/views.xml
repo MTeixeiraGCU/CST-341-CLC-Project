@@ -14,6 +14,9 @@
     <definition name="UserView" extends="DefaultTemplate">
     	<put-attribute name="body" value="/WEB-INF/pages/userView/UserView.jsp" />
     </definition>
+    <definition name="UserList" extends="DefaultTemplate">
+    	<put-attribute name="body" value="/WEB-INF/pages/userView/UserList.jsp" />
+    </definition>
     <definition name="Login" extends="DefaultTemplate">
     	<put-attribute name="body" value="/WEB-INF/pages/login/Login.jsp" />
     </definition>

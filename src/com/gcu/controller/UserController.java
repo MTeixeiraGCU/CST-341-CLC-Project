@@ -1,5 +1,7 @@
 package com.gcu.controller;
 
+import java.util.List;
+
 import javax.servlet.http.HttpSession;
 import javax.validation.Valid;
 
@@ -52,5 +54,12 @@ public class UserController {
 			model.addAttribute("msg", "User has been updated into the database!");
 			return new ModelAndView("ProfileSuccess", "user", user);
 		}
+	}
+	
+	@RequestMapping(path="/userList", method=RequestMethod.GET)
+	public ModelAndView userList(ModelMap model)
+	{
+		List<User> users = userBusinessService.getUsers();
+		return new ModelAndView("UserList", "users", users);
 	}
 }

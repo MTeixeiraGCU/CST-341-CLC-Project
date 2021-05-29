@@ -73,7 +73,7 @@ public class BookController {
 	}
 	
 	@RequestMapping(path="/bookList", method=RequestMethod.GET)
-	public ModelAndView NavToBokkList(ModelMap model)
+	public ModelAndView NavToBookList(ModelMap model)
 	{
 		if(session.getAttribute("userName") != null)
 		{
