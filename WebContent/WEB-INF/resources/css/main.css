@@ -171,10 +171,6 @@ table.bookCards td {
   padding: 8px;
 }
 
-#users td a {
-	display: block;
-}
-
 #users tr:nth-child(even){background-color: #f2f2f2;}
 
 #users tr:hover {background-color: #ddd;}

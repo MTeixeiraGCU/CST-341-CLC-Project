@@ -14,12 +14,12 @@
   </tr>
   <c:forEach var="user" items="${users}">
   	
-	<tr>
-		<td><a href="editUser?userName=${user.userName}">${user.userName}</a></td>
-		<td><a href="editUser?userName=${user.userName}">${user.firstName}</a></td>
-		<td><a href="editUser?userName=${user.userName}">${user.lastName}</a></td>
-		<td><a href="editUser?userName=${user.userName}">${user.email}</a></td>
-		<td><a href="editUser?userName=${user.userName}">${user.phoneNumber}</a></td>
+	<tr onclick="window.location.href='editUser?userName=${user.userName}';">
+		<td>${user.userName}</td>
+		<td>${user.firstName}</td>
+		<td>${user.lastName}</td>
+		<td>${user.email}</td>
+		<td>${user.phoneNumber}</td>
 	</tr>
 
   </c:forEach>
