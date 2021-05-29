@@ -41,4 +41,10 @@
     <definition name="Contact" extends="DefaultTemplate">
     	<put-attribute name="body" value="/WEB-INF/pages/Contact.jsp" />
     </definition>
+     <definition name="AddBookSuccess" extends="DefaultTemplate">
+    	<put-attribute name="body" value="/WEB-INF/pages/bookView/AddBookSuccess.jsp" />
+    </definition>
+    <definition name="ProfileSuccess" extends="DefaultTemplate">
+    	<put-attribute name="body" value="/WEB-INF/pages/userView/ProfileSuccess.jsp" />   
+	</definition>
 </tiles-definitions>

@@ -50,7 +50,7 @@ public class UserController {
 		else {
 			userBusinessService.UpdateUser(user);
 			model.addAttribute("msg", "User has been updated into the database!");
-			return new ModelAndView("index", "user", user);
+			return new ModelAndView("ProfileSuccess", "user", user);
 		}
 	}
 }

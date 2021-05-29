@@ -66,8 +66,10 @@ public class BookController {
 		else {
 			bookBusinessService.addBook(eBook);
 			model.addAttribute("msg", "Book has been updated into the database!");
-			return new ModelAndView("index", "eBook", eBook);
+			return new ModelAndView("AddBookSuccess", "eBook", eBook);
+			
 		}
+		
 	}
 	
 	@RequestMapping(path="/bookList", method=RequestMethod.GET)
@@ -83,5 +85,6 @@ public class BookController {
 			model.addAttribute("msg", "You must login before you can view the eBooks list!");
 			return new ModelAndView("index");
 		}
-	}
+	}	
+		
 }
