@@ -2,14 +2,17 @@
     pageEncoding="ISO-8859-1"%>
 
     <div class="container">
-	<h3>Profile Updated Successfully!</h3>
+	<h3>${user.userName}'s Profile Was Updated Successfully!</h3>
 	<hr />
 	
 	<div class="row">
 	<div class="col-md-6 offset-md-3">
-		Welcome ${user.getUserName() }!	
 		<br>
-		<a href="index">Go to Home Page</a> 
+		<a href="editUser?userName=${user.userName}">Go back to Profile Page</a>
+		<br>
+		<a href="userList">Return to user List</a>	
+		<br>
+		<a href="index">Home Page</a> 
 		<br>
 		<a href="logout">Logout?</a> 
 	</div>
