@@ -1,7 +1,6 @@
 package com.gcu.controller;
 
 import com.gcu.model.UserLogin;
-import com.gcu.business.UserBusinessService;
 import com.gcu.business.UserBusinessServiceInterface;
 
 import javax.servlet.http.HttpSession;

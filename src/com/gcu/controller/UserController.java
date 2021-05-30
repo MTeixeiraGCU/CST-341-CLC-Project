@@ -16,7 +16,6 @@ import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.servlet.ModelAndView;
 
 import com.gcu.business.UserBusinessServiceInterface;
-import com.gcu.model.EBook;
 import com.gcu.model.User;
 
 @Controller

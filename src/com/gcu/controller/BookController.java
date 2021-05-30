@@ -17,7 +17,6 @@ import org.springframework.web.servlet.ModelAndView;
 
 import com.gcu.business.BookBusinessServiceInterface;
 import com.gcu.model.EBook;
-import com.gcu.model.User;
 
 @Controller
 public class BookController {

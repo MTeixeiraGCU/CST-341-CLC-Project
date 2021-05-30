@@ -14,7 +14,7 @@
 <div class="dropdown">
   <button onclick="myFunction()" class="dropbtn">Browse Books</button>
   <div id="myDropdown" class="dropdown-content">
-    <input type="text" placeholder="Search.." id="myInput" onkeyup="filterFunction()">
+    <input type="text" placeholder="Search.." id="myInput" onkeyup="filterFunction()"/>
     <c:forEach var="book" items="${books}" varStatus="counter">
     	<a href="editBook?isbn=${book.isbn}">${book.title}</a>
     </c:forEach>
@@ -26,14 +26,15 @@
 	<tr>
 			<c:forEach var="book" items="${books}" varStatus="counter">
 			
+				<!-- Check for incomplete row of cards at the end of the list and close that row -->
 				<c:if test="${not counter.first and counter.index % 3 == 0}">
-	</tr>
-	<tr>
+					<c:out value="</tr>" escapeXml="false" />
+					<c:out value="<tr>" escapeXml="false" />
 				</c:if>
 					
 				<td>
 					<div class="card">
-						<a href="editBook?isbn=${book.isbn}">
+						
 		 					<img src="resources/img/defaultBook.png" alt="${book.title}" style="width:100%">
 		 					<div class="container">
 			   					<h4><b>${book.title}</b></h4>
@@ -42,7 +43,7 @@
 			   					<p>Publisher: ${book.publisher}</p>
 			   					<p>Publication Date: ${book.publicationDate}</p>
 		 					</div>
-		 				</a>
+		 					<p><a class="button" href="editBook?isbn=${book.isbn}" >Edit</a></p>
 					</div>
 				</td>
 				
@@ -53,6 +54,7 @@
 </table>
 
 <script>
+
 	/* When the user clicks on the button,
 	toggle between hiding and showing the dropdown content */
 	function myFunction() {
