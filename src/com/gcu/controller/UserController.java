@@ -71,7 +71,7 @@ public class UserController {
 		
 		//check for admin status
 		if(session.getAttribute("admin").equals(false)) {
-			model.addAttribute("msg", "You must enter a vaild user name to be removed!");
+			model.addAttribute("msg", "You must have access to remove users!");
 			return new ModelAndView("index", "user", user);
 		}
 		

@@ -95,7 +95,7 @@ public class BookController {
 		
 		//check for admin status
 		if(session.getAttribute("admin").equals(false)) {
-			model.addAttribute("msg", "You must have access to remove from the database!");
+			model.addAttribute("msg", "You must have access to remove books from the database!");
 			return new ModelAndView("index", "eBook", eBook);
 		}
 		
