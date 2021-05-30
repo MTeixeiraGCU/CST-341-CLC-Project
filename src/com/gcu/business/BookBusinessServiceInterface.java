@@ -11,4 +11,6 @@ public interface BookBusinessServiceInterface {
 	public List<EBook> getAllBooks();
 	
 	public void addBook(EBook eBook);
+	
+	public boolean deleteBook(EBook eBook);
 }

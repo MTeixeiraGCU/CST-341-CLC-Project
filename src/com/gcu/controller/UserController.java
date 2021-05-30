@@ -66,14 +66,16 @@ public class UserController {
 	@RequestMapping(path="/removeUser", method=RequestMethod.GET)
 	public ModelAndView removeUser(@RequestParam("userName") String userName, ModelMap model) {
 		
+		//get the user if they exists
+		User user = userBusinessService.getUser(userName);
+		
 		//check for admin status
 		if(session.getAttribute("admin").equals(false)) {
 			model.addAttribute("msg", "You must enter a vaild user name to be removed!");
 			return new ModelAndView("index", "user", user);
 		}
 		
-		//get the user if they exist
-		User user = userBusinessService.getUser(userName);
+		//check for existing user
 		if(user == null) {
 			model.addAttribute("msg", "You must enter a vaild user name to be removed!");
 			return new ModelAndView("index", "user", user);
@@ -88,6 +90,7 @@ public class UserController {
 		}
 
 		//return to home page
+		//TODO: add code here to catch deletion of logged in user.
 		return new ModelAndView("index", "user", user);
 	}
 }

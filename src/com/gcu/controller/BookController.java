@@ -85,6 +85,36 @@ public class BookController {
 			model.addAttribute("msg", "You must login before you can view the eBooks list!");
 			return new ModelAndView("index");
 		}
-	}	
+	}
+	
+	@RequestMapping(path="/removeBook", method=RequestMethod.GET)
+	public ModelAndView removeBook(@RequestParam("isbn") String isbn, ModelMap model) {
+		
+		//get the book if it exists
+		EBook eBook = bookBusinessService.getBook(isbn);
+		
+		//check for admin status
+		if(session.getAttribute("admin").equals(false)) {
+			model.addAttribute("msg", "You must have access to remove from the database!");
+			return new ModelAndView("index", "eBook", eBook);
+		}
+		
+		//check for existing book
+		if(eBook == null) {
+			model.addAttribute("msg", "You must enter a vaild isbn for the book to be removed!");
+			return new ModelAndView("index", "eBook", eBook);
+		}
+		
+		//attempt to remove the book from the database
+		if(bookBusinessService.deleteBook(eBook)) {
+			model.addAttribute("msg", isbn + " was removed from the database!");
+		}
+		else {
+			model.addAttribute("msg", "Ther were errors, could not remove " + isbn + " from the database!");
+		}
+
+		//return to home page
+		return new ModelAndView("index", "eBook", eBook);
+	}
 		
 }

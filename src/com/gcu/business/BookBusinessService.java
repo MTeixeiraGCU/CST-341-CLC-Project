@@ -31,5 +31,13 @@ public class BookBusinessService implements BookBusinessServiceInterface {
 			bookDataAccessService.add(eBook);
 		}
 	}
+
+	@Override
+	public boolean deleteBook(EBook eBook) {
+		bookDataAccessService.delete(eBook);
+		
+		//TODO: add code here to detect proper book deletion
+		return true;
+	}
 	
 }
