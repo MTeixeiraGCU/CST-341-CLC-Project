@@ -62,4 +62,32 @@ public class UserController {
 		List<User> users = userBusinessService.getUsers();
 		return new ModelAndView("UserList", "users", users);
 	}
+	
+	@RequestMapping(path="/removeUser", method=RequestMethod.GET)
+	public ModelAndView removeUser(@RequestParam("userName") String userName, ModelMap model) {
+		
+		//check for admin status
+		if(session.getAttribute("admin").equals(false)) {
+			model.addAttribute("msg", "You must enter a vaild user name to be removed!");
+			return new ModelAndView("index", "user", user);
+		}
+		
+		//get the user if they exist
+		User user = userBusinessService.getUser(userName);
+		if(user == null) {
+			model.addAttribute("msg", "You must enter a vaild user name to be removed!");
+			return new ModelAndView("index", "user", user);
+		}
+		
+		//attempt to remove them from the database
+		if(userBusinessService.deleteUser(user)) {
+			model.addAttribute("msg", userName + " was removed from the database!");
+		}
+		else {
+			model.addAttribute("msg", "Ther were errors, could not remove " + userName + " from the database!");
+		}
+
+		//return to home page
+		return new ModelAndView("index", "user", user);
+	}
 }

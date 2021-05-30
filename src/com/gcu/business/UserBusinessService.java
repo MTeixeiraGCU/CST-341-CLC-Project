@@ -117,6 +117,17 @@ public class UserBusinessService implements UserBusinessServiceInterface{
 		//TODO: Add logic to detect failed attempt.
 		return true;
 	}
+	
+	/**
+	 * This method removes the given user from the database.
+	 */
+	@Override
+	public boolean deleteUser(User user) {
+		userDataAccessService.delete(user);
+		
+		//TODO: Add checks here to handle failed delete.
+		return true;
+	}
 
 	/**
 	 * This method checks the given user's role for admin status.

@@ -20,4 +20,6 @@ public interface UserBusinessServiceInterface {
 	
 	public boolean UpdateUser(User user);
 	
+	public boolean deleteUser(User user);
+	
 }
