@@ -43,7 +43,10 @@
 			   					<p>Publisher: ${book.publisher}</p>
 			   					<p>Publication Date: ${book.publicationDate}</p>
 		 					</div>
-		 					<p><a class="button" href="editBook?isbn=${book.isbn}" >Edit</a></p>
+		 					<a class="addButton" href="#">Add</a>
+		 					<c:if test="${sessionScope.admin}" >
+		 						<a class="editButton" href="editBook?isbn=${book.isbn}" >Edit</a>
+		 					</c:if>
 					</div>
 				</td>
 				

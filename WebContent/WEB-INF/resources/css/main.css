@@ -21,8 +21,28 @@ body {
   padding: 2px 16px;
 }
 
+/* block styles for book card buttons */
+.cardButton p{
+	width: 100%;
+	margin: 0%;
+}
+
+/* Add button at the bottom of eBook cards */
+.card a.addButton {
+  background-color: #008000;
+  width: 100%;
+  border: none;
+  color: white;
+  padding: 15px 32px;
+  text-align: center;
+  text-decoration: none;
+  display: inline-block;
+  font-size: 16px;
+  cursor: pointer;
+}
+
 /* Edit button at the bottom of eBook cards */
-.card a.button {
+.card a.editButton {
   background-color: #400000;
   width: 100%;
   border: none;
@@ -35,7 +55,8 @@ body {
   cursor: pointer;
 }
 
-.card a.button:hover {
+/* hover effect for book card buttons */
+.card a.editButton:hover, .card a.addButton:hover {
 	opacity: 0.7;
 }
 
