@@ -35,8 +35,8 @@
 				<td>
 					<div class="card">
 						
-		 					<img src="resources/img/defaultBook.png" alt="${book.title}" style="width:100%">
-		 					<div class="container">
+		 					<img src="resources/img/defaultBook.png" alt="${book.title}" style="width:100%" onclick="window.location.href='editBook?isbn=${book.isbn}'">
+		 					<div class="container" onclick="window.location.href='editBook?isbn=${book.isbn}'">
 			   					<h4><b>${book.title}</b></h4>
 			   					<p>Author: ${book.author}</p>
 			   					<p>ISBN: ${book.isbn}</p>
