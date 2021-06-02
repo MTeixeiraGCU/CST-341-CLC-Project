@@ -12,7 +12,7 @@
 				<table style="with: 80%">
 					
 					<tr class="form-group">
-				    	<td><form:label id="username" path="userName">User Name: </form:label></td> 
+				    	<td><form:label id="username" path="userName">UserName: </form:label></td> 
 				        <td><form:input id="username" path="userName"/></td>
 				        <td>
 				        	<div class="invalid-feedback">
@@ -48,10 +48,9 @@
 </div>
 
 <script>
-$(document).ready(function(){  
-        $( "input#username" ).focus(function() {
-        	$("label#username").css("font-size", "20px");
-        	
-    });
-  });
-  </script>
+$(document).ready(function(){
+	  $("input#username").focus(function(){
+		    $("label#username").animate({"font-size": "20px"}, 1000);
+	  }); 
+	});
+</script>
