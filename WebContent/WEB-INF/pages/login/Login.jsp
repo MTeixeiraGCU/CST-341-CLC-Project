@@ -12,8 +12,8 @@
 				<table style="with: 80%">
 					
 					<tr class="form-group">
-				    	<td><form:label path="userName">User Name: </form:label></td> 
-				        <td><form:input path="userName"/></td>
+				    	<td><form:label id="username" path="userName">User Name: </form:label></td> 
+				        <td><form:input id="username" path="userName"/></td>
 				        <td>
 				        	<div class="invalid-feedback">
 				        		<form:errors path="userName" />
@@ -46,3 +46,12 @@
 		</div>
 	</div>
 </div>
+
+<script>
+$(document).ready(function(){  
+        $( "input#username" ).focus(function() {
+        	$("label#username").css("font-size", "20px");
+        	
+    });
+  });
+  </script>
