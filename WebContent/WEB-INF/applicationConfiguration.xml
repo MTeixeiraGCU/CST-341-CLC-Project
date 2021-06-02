@@ -35,6 +35,14 @@
     	<aop:scoped-proxy proxy-target-class="false" />
     </bean>
     
+    <bean id="libraryBusinessService" class="com.gcu.business.libraryBusinessService" scope="session">
+    	<aop:scoped-proxy proxy-target-class="false" />
+    </bean>
+    
+    <bean id="libraryDataAccessService" class="com.gcu.data.libraryDataAccessService" scope="session">
+    	<aop:scoped-proxy proxy-target-class="false" />
+    </bean>
+    
     <bean id="bookBusinessService" class="com.gcu.business.BookBusinessService" scope="session">
     	<aop:scoped-proxy proxy-target-class="false" />
     </bean>
