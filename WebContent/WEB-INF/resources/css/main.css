@@ -61,6 +61,13 @@ body {
   cursor: pointer;
 }
 
+/* disabled book fields for none admins */
+input.form-control:disabled {
+	background-color: white;
+	border: none;
+	color: black;
+}
+
 /* hover effect for book card buttons */
 .card a.editButton:hover, .card a.addButton:hover {
 	opacity: 0.7;
