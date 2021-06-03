@@ -7,6 +7,10 @@ import javax.validation.constraints.Size;
 
 import org.springframework.format.annotation.DateTimeFormat;
 
+/**
+ * This class is designed to hold information on a single EBook.
+ *
+ */
 public class EBook {
 	
 	//private fields
@@ -27,6 +31,7 @@ public class EBook {
 	@DateTimeFormat(pattern="yyy-MM-dd")
 	Date publicationDate;
 
+	//default constructor
 	public EBook()
 	{
 		this.isbn = "";

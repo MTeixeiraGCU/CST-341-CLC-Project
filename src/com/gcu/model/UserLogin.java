@@ -6,14 +6,11 @@ import javax.validation.constraints.Size;
 /**
  * The UserLogin Class is used to hold login information for a user only. This is username and password. It omits most of the user
  * information that is stored in the regular User class.
- * 
- * @author Marc
  *
  */
 public class UserLogin {
 
 	//private fields
-	
 	@NotNull(message="You must enter a value for your User Name!")
 	@Size(min=4, max=25, message="Invalid User Name!")
 	private String userName;
