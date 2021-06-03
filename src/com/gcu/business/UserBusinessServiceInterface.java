@@ -4,6 +4,10 @@ import java.util.List;
 
 import com.gcu.model.User;
 
+/**
+ * This interface is designed as a business layer for handling a user information and the related logic it requires.
+ *
+ */
 public interface UserBusinessServiceInterface {
 	
 	public boolean LoginUser(String userName, String password);

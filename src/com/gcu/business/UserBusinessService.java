@@ -9,7 +9,6 @@ import com.gcu.model.User;
 
 /**
  * This class offers all application specific logic for handling user information, registration, and login
- * @author Marc
  *
  */
 public class UserBusinessService implements UserBusinessServiceInterface{
@@ -51,6 +50,7 @@ public class UserBusinessService implements UserBusinessServiceInterface{
 	 * @param phoneNumber
 	 * @param userName
 	 * @param password
+	 * @return true if the user was registered into the database.
 	 */
 	@Override
 	public boolean RegisterUser(String firstName, String lastName, String email, String phoneNumber, String userName, String password)
@@ -92,7 +92,9 @@ public class UserBusinessService implements UserBusinessServiceInterface{
 	}
 
 	/**
-	 * returns a user object by the given userName.
+	 * This method returns a user object by the given userName.
+	 * @param userName the user to look up.
+	 * @return a User object that represents the given user.
 	 */
 	@Override
 	public User getUser(String userName) {
@@ -100,7 +102,8 @@ public class UserBusinessService implements UserBusinessServiceInterface{
 	}
 
 	/**
-	 * returns the entire list of users in the database.
+	 * This method returns the entire list of users in the database.
+	 * @return A complete List<User> of all the registered users in the database.
 	 */
 	@Override
 	public List<User> getUsers() {
@@ -108,7 +111,9 @@ public class UserBusinessService implements UserBusinessServiceInterface{
 	}
 
 	/**
-	 * updates a users infromation onto the database.
+	 * This method updates a users information onto the database.
+	 * @param user an object representing the users new information.
+	 * @return true if the user has been updated.
 	 */
 	@Override
 	public boolean UpdateUser(User user) {
@@ -120,6 +125,8 @@ public class UserBusinessService implements UserBusinessServiceInterface{
 	
 	/**
 	 * This method removes the given user from the database.
+	 * @param user the user object to remove from the database.
+	 * @return true if the user was removed from the database.
 	 */
 	@Override
 	public boolean deleteUser(User user) {
@@ -131,6 +138,8 @@ public class UserBusinessService implements UserBusinessServiceInterface{
 
 	/**
 	 * This method checks the given user's role for admin status.
+	 * @param userName the user to check for admin status.
+	 * @return true if the user is an admin.
 	 */
 	@Override
 	public boolean CheckAdminStatus(String userName) {
