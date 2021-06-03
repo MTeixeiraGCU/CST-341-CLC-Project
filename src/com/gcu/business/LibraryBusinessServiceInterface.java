@@ -7,5 +7,6 @@ import com.gcu.model.EBook;
 public interface LibraryBusinessServiceInterface {
 	
 	public List<EBook> getLibrary(String userName);
-	
+	public boolean removeBook(String userName, String isbn);
+	public boolean addBook(String userName, String isbn);
 }

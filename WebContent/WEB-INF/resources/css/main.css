@@ -28,7 +28,7 @@ body {
 }
 
 /* Add button at the bottom of eBook cards */
-.card a.addButton {
+.card button.addButton {
   background-color: #008000;
   width: 100%;
   border: none;
@@ -39,6 +39,12 @@ body {
   display: inline-block;
   font-size: 16px;
   cursor: pointer;
+  transition: 0.3s;
+}
+
+/* Add button at the bottom of eBook cards hover effect*/
+.card button.addButton:hover {
+	background-color: #005b00;
 }
 
 /* Edit button at the bottom of eBook cards */

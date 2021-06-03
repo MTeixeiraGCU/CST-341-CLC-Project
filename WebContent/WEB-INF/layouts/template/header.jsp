@@ -13,7 +13,7 @@
 			</c:when>
 			<c:otherwise>
 				<a <c:if test="${requestScope['javax.servlet.forward.request_uri'] == '/CLCProject/bookList'}">class="active"</c:if>href="bookList">eBooks</a>
-				<a <c:if test="${requestScope['javax.servlet.forward.request_uri'] == '/CLCProject/library'}">class="active"</c:if>href="library">Library</a>
+				<a <c:if test="${requestScope['javax.servlet.forward.request_uri'] == '/CLCProject/library'}">class="active"</c:if>href="library/library">Library</a>
 				<a <c:if test="${requestScope['javax.servlet.forward.request_uri'] == '/CLCProject/editUser'}">class="active"</c:if>href="editUser?userName=${sessionScope.userName}">Profile</a>
 				<c:if test="${sessionScope.admin}">
 				<a <c:if test="${requestScope['javax.servlet.forward.request_uri'] == '/CLCProject/userList'}">class="active"</c:if>href="userList">User List</a>	

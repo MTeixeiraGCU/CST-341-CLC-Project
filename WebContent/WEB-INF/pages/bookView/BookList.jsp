@@ -43,7 +43,7 @@
 			   					<p>Publisher: ${book.publisher}</p>
 			   					<p>Publication Date: ${book.publicationDate}</p>
 		 					</div>
-		 					<a class="addButton" href="#">Add</a>
+		 					<button class="addButton" onclick="addBook('${book.isbn}')">Add</button>
 		 					<c:if test="${sessionScope.admin}" >
 		 						<a class="editButton" href="editBook?isbn=${book.isbn}" >Edit</a>
 		 					</c:if>
@@ -58,6 +58,31 @@
 
 <script>
 
+	/* script for adding book to library*/
+	function addBook(isbn) {
+		$.ajax(
+			{
+				type: "GET",
+				url: "/CLCProject/library/add?isbn=" + isbn,
+				dataType: "json",
+				success: function(result)
+				{
+					if(result) {
+						alert("Book was added to your library successfully!");
+					}
+					else {
+						alert("Could not add book to your library!");
+					}
+				},
+				error: function (xhr, ajaxOptions, thrownError) 
+				{
+					alert(xhr.status);
+					alert(thrownError);
+				}
+			}
+		);		
+	}
+
 	/* When the user clicks on the button,
 	toggle between hiding and showing the dropdown content */
 	function myFunction() {
@@ -70,7 +95,6 @@
 		  }
 	  }
 	}
-	
 	function filterFunction() {
 	  var input, filter, ul, li, a, i, counter;
 	  counter = 0;

@@ -16,5 +16,14 @@ public class LibraryBusinessService implements LibraryBusinessServiceInterface {
 	public List<EBook> getLibrary(String userName) {
 		return libraryDataAccessService.getBooks(userName);
 	}
-
+	
+	@Override
+	public boolean removeBook(String userName, String isbn) {
+		return libraryDataAccessService.removeBook(userName, isbn);
+	}
+	
+	@Override
+	public boolean addBook(String userName, String isbn) {
+		return libraryDataAccessService.addBook(userName, isbn);
+	}
 }

@@ -20,6 +20,7 @@ public class LibraryDataAccessService implements LibraryDataAccessServiceInterfa
 		jdbcTemplate = new JdbcTemplate(dataSource);
 	}
 	
+	@Override
 	public List<EBook> getBooks(String userName) {
 		List<EBook> books = new ArrayList<EBook>();
 		
@@ -31,6 +32,26 @@ public class LibraryDataAccessService implements LibraryDataAccessServiceInterfa
 		books = jdbcTemplate.query(query, new Object[] {userName}, new EBookRowMapper());
 		
 		return books;
+	}
+	
+	@Override
+	public boolean removeBook(String userName, String isbn) {
+		String query = "DELETE FROM library WHERE USED_ID = ? AND BOOK_ID = ?";
+		int result = jdbcTemplate.update(query, userName, isbn);
+		if(result == 1) {
+			return true;
+		}
+		return false;
+	}
+	
+	@Override
+	public boolean addBook(String userName, String isbn) {
+		String query = "INSERT INTO library (USER_ID, BOOK_ID) VALUES (?, ?)";
+		int result = jdbcTemplate.update(query, userName, isbn);
+		if(result == 1) {
+			return true;
+		}
+		return false;
 	}
 
 }
