@@ -68,7 +68,11 @@
 		        	</div>
 		         </td>
 			</tr>   
-			 
+			
+			<tr class="form-group">
+				<td><p class="invalid-feedback">${msg}</p></td>
+			</tr>
+			
 		</table>
         <input type="submit" class="btn btn-primary" value="Submit" />
         

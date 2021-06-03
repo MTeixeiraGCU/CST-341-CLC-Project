@@ -1,5 +1,6 @@
 package com.gcu.controller;
 
+import javax.servlet.http.HttpSession;
 import javax.validation.Valid;
 
 import org.springframework.beans.factory.annotation.Autowired;
@@ -16,7 +17,10 @@ import com.gcu.model.User;
 
 @Controller
 public class RegistrationController {
-		
+	
+	@Autowired
+	private HttpSession session;
+	
 	@Autowired
 	private UserBusinessServiceInterface userBusinessService;
 	
@@ -31,7 +35,11 @@ public class RegistrationController {
 			return new ModelAndView("Registration", "user", user);
 		} 
 		else {
-			if(userBusinessService.RegisterUser(user.getFirstName(), user.getLastName(), user.getEmail(), user.getPhoneNumber(), user.getUserName(), user.getPassword())) {
+			if(userBusinessService.CheckDuplicateUserName(user.getUserName())) {
+				session.setAttribute("msg", "That Username is already in use!");
+				return new ModelAndView("Registration", "user", user);
+			}
+			else if(userBusinessService.RegisterUser(user.getFirstName(), user.getLastName(), user.getEmail(), user.getPhoneNumber(), user.getUserName(), user.getPassword())) {
 				return new ModelAndView("RegistrationSuccess", "user", user);
 			} 
 			else {
