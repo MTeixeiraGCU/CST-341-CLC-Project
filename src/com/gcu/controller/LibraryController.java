@@ -16,6 +16,10 @@ import org.springframework.web.servlet.ModelAndView;
 import com.gcu.business.LibraryBusinessServiceInterface;
 import com.gcu.model.EBook;
 
+/**
+ * This class is setup as a Spring controller to be used for mapping user library transactions.
+ *
+ */
 @Controller
 @RequestMapping("/library")
 public class LibraryController {

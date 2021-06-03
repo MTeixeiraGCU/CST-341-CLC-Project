@@ -4,6 +4,10 @@ import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
 
+/**
+ * This class is setup as a Spring controller to be used for mapping main menu requests, (index, About, Contact) specifically.
+ *
+ */
 @Controller
 public class MainController {
 	

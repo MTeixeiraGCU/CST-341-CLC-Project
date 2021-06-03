@@ -15,6 +15,10 @@ import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.servlet.ModelAndView;
 	
+/**
+ * This class is setup as a Spring controller to be used for mapping user login transactions.
+ *
+ */
 @Controller
 public class LoginController {
 	

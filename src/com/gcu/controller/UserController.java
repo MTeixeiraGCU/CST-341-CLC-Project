@@ -18,6 +18,10 @@ import org.springframework.web.servlet.ModelAndView;
 import com.gcu.business.UserBusinessServiceInterface;
 import com.gcu.model.User;
 
+/**
+ * This class is setup as a Spring controller to be used for mapping user profile transactions including changes by admins.
+ *
+ */
 @Controller
 public class UserController {
 	
