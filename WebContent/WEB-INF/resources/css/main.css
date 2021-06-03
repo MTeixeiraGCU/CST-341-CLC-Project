@@ -5,15 +5,17 @@ body {
   font-family: Arial, Helvetica, sans-serif;
 }
 
+/* Add shadows to create the "card" effect */
 .card {
-  /* Add shadows to create the "card" effect */
-  box-shadow: 0 4px 8px 0 rgba(0,0,0,0.2);
+  box-shadow: 0 4px 8px 0 rgba(0,0,0,0.1);
+  background-color: #e6e6e6;
   transition: 0.3s;
 }
 
 /* On mouse-over, add a deeper shadow */
 .card:hover {
-  box-shadow: 0 8px 16px 0 rgba(0,0,0,0.2);
+  cursor: pointer;
+  box-shadow: 0 10px 16px 0 rgba(0,0,0,0.3);
 }
 
 /* Add some padding inside the card container */

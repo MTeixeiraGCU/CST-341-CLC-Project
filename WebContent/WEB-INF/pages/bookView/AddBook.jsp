@@ -10,7 +10,7 @@
 		 
 			 <tr class="form-group">
 		     	<td><form:label path="title">Title: </form:label></td>
-		     	<td> <form:input class="form-control" path="title" readonly="${not sessionScope.admin}" disabled="${not sessionScope.admin}"></form:input></td> 
+		     	<td> <form:input class="form-control" path="title" ></form:input></td> 
 		     	<td>
 		     		<div class="invalid-feedback">
 			        	<form:errors path="title"/>
@@ -20,7 +20,7 @@
 		     
 		     <tr class="form-group">
 	         	<td><form:label path="author">Author: </form:label></td>
-	         	<td><form:input class="form-control" path="author" readonly="${not sessionScope.admin}" disabled="${not sessionScope.admin}"></form:input></td>  
+	         	<td><form:input class="form-control" path="author" ></form:input></td>  
 	         	<td>
 	         		<div class="invalid-feedback">
 			        	<form:errors path="author"/>
@@ -30,7 +30,7 @@
 	          
 	         <tr class="form-group">
 	         	<td><form:label path="isbn">ISBN: </form:label></td> 
-	         	<td><form:input class="form-control" path="isbn" readonly="${not sessionScope.admin}" disabled="${not sessionScope.admin}"></form:input></td> 
+	         	<td><form:input class="form-control" path="isbn" ></form:input></td> 
 	         	<td>
 	         		<div class="invalid-feedback">
 			        	<form:errors path="isbn"/>
@@ -40,7 +40,7 @@
 	         
 	         <tr class="form-group">
 	         	<td><form:label path="publisher">Publisher: </form:label></td>
-	         	<td><form:input class="form-control" path="publisher" readonly="${not sessionScope.admin}" disabled="${not sessionScope.admin}"></form:input></td> 
+	         	<td><form:input class="form-control" path="publisher" ></form:input></td> 
 	         	<td>
 	         		<div class="invalid-feedback">
 			        	<form:errors path="publisher"/>
@@ -49,9 +49,21 @@
 	         </tr>
          
         </table>
-		<input class="btn btn-primary" type="submit" value="Submit" hidden="${not sessionScope.admin}"/>
+		<input id="submitButton" class="btn btn-primary" type="submit" value="Submit"/>
 		
 	</form:form>
 </div>
+
+<script>
+	 function setup(){
+		if(!${sessionScope.admin}) {
+			$("input.form-control").attr("readonly", "true");
+			$("input.form-control").attr("disabled", "true");
+			$("input#submitButton").attr("hidden", "true");
+		}
+	 }
+	
+	$(document).ready(setup);
+</script>
 
 
