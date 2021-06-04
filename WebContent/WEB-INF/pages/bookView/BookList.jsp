@@ -35,8 +35,8 @@
 				<td>
 					<div class="card">
 						
-		 					<img src="resources/img/defaultBook.png" alt="${book.title}" style="width:100%" onclick="window.location.href='editBook?isbn=${book.isbn}'">
-		 					<div class="container" onclick="window.location.href='editBook?isbn=${book.isbn}'">
+		 					<img src="resources/img/defaultBook.png" alt="${book.title}" style="width:100%" onclick="window.location.href='/CLCProject/editBook?isbn=${book.isbn}'">
+		 					<div class="container" onclick="window.location.href='/CLCProject/editBook?isbn=${book.isbn}'">
 			   					<h4><b>${book.title}</b></h4>
 			   					<p>Author: ${book.author}</p>
 			   					<p>ISBN: ${book.isbn}</p>
@@ -67,12 +67,8 @@
 				dataType: "json",
 				success: function(result)
 				{
-					if(result) {
-						alert("Book was added to your library successfully!");
-					}
-					else {
-						alert("Could not add book to your library!");
-					}
+					var parsedString = JSON.parse(result);
+					alert(parsedString.d);
 				},
 				error: function (xhr, ajaxOptions, thrownError) 
 				{
