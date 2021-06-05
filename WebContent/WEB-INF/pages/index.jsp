@@ -7,12 +7,8 @@
 <hr/>
 
 <p>NEW: Login, then <a href="add">Click here</a> to add a new book!
-<p>NEW:	User list for admins to view.</p>
-<p>NEW:	Edit/Save user and eBook information.</p>
 <p>NEW: Delete Users/Books from database. Use "/removeUser?userName=NameHere" to remove users and "/removeBook?isbn=ISBNHere" for books.</p>
-
-<p>COMING SOON: Delete Button for the user/Book removal on their respective editing pages.</p>
-<p>COMING SOON: Possible eBook cart/library system
-
+<p>NEW: Library page for each user to see their selected ebooks.</p>
+<p>NEW: Users can now add books to their library from the book list page.
 
 <p class="invalid-feedback">${msg}</p>

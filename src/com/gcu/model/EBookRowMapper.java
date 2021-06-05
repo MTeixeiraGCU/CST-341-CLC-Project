@@ -5,6 +5,10 @@ import java.sql.SQLException;
 
 import org.springframework.jdbc.core.RowMapper;
 
+/**
+ * This class is designed to allow Spring JDBC to automatically map `books` table database columns onto a EBook object.
+ *
+ */
 public class EBookRowMapper implements RowMapper<EBook> {
 
 	@Override

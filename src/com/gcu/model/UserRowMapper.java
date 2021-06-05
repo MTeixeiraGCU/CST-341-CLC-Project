@@ -5,6 +5,10 @@ import java.sql.SQLException;
 
 import org.springframework.jdbc.core.RowMapper;
 
+/**
+ * This class is designed to allow Spring JDBC to automatically map `users` table database columns onto a User object.
+ *
+ */
 public class UserRowMapper implements RowMapper<User> {
 
 	@Override

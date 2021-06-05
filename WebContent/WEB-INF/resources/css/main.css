@@ -5,15 +5,17 @@ body {
   font-family: Arial, Helvetica, sans-serif;
 }
 
+/* Add shadows to create the "card" effect */
 .card {
-  /* Add shadows to create the "card" effect */
-  box-shadow: 0 4px 8px 0 rgba(0,0,0,0.2);
+  box-shadow: 0 4px 8px 0 rgba(0,0,0,0.1);
+  background-color: #e6e6e6;
   transition: 0.3s;
 }
 
 /* On mouse-over, add a deeper shadow */
 .card:hover {
-  box-shadow: 0 8px 16px 0 rgba(0,0,0,0.2);
+  cursor: pointer;
+  box-shadow: 0 10px 16px 0 rgba(0,0,0,0.3);
 }
 
 /* Add some padding inside the card container */
@@ -28,7 +30,7 @@ body {
 }
 
 /* Add button at the bottom of eBook cards */
-.card a.addButton {
+.card button.addButton {
   background-color: #008000;
   width: 100%;
   border: none;
@@ -39,6 +41,12 @@ body {
   display: inline-block;
   font-size: 16px;
   cursor: pointer;
+  transition: 0.3s;
+}
+
+/* Add button at the bottom of eBook cards hover effect*/
+.card button.addButton:hover {
+	background-color: #005b00;
 }
 
 /* Edit button at the bottom of eBook cards */
@@ -53,6 +61,13 @@ body {
   display: inline-block;
   font-size: 16px;
   cursor: pointer;
+}
+
+/* disabled book fields for none admins */
+input.form-control:disabled {
+	background-color: white;
+	border: none;
+	color: black;
 }
 
 /* hover effect for book card buttons */

@@ -18,6 +18,10 @@ import org.springframework.web.servlet.ModelAndView;
 import com.gcu.business.BookBusinessServiceInterface;
 import com.gcu.model.EBook;
 
+/**
+ * This class is setup as a Spring controller to be used for mapping book catalog transactions.
+ *
+ */
 @Controller
 public class BookController {
 

@@ -50,6 +50,30 @@ ENGINE = InnoDB
 DEFAULT CHARACTER SET = utf8mb4
 COLLATE = utf8mb4_0900_ai_ci;
 
+-- -----------------------------------------------------
+-- Table `cst-341-clcproject`.`library`
+-- -----------------------------------------------------
+CREATE TABLE IF NOT EXISTS `cst-341-clcproject`.`library` (
+  `USER_ID` VARCHAR(45) NOT NULL,
+  `BOOK_ID` VARCHAR(45) NOT NULL,
+  `LIBRARY_ID` INT NOT NULL AUTO_INCREMENT,
+  PRIMARY KEY (`LIBRARY_ID`),
+  INDEX `USER_ID_KEY_idx` (`USER_ID` ASC) VISIBLE,
+  INDEX `BOOK_ID_KEY_idx` (`BOOK_ID` ASC) VISIBLE,
+  CONSTRAINT `BOOK_ID_KEY`
+    FOREIGN KEY (`BOOK_ID`)
+    REFERENCES `cst-341-clcproject`.`books` (`ISBN`)
+    ON DELETE CASCADE
+    ON UPDATE CASCADE,
+  CONSTRAINT `USER_ID_KEY`
+    FOREIGN KEY (`USER_ID`)
+    REFERENCES `cst-341-clcproject`.`users` (`USER_NAME`)
+    ON DELETE CASCADE
+    ON UPDATE CASCADE)
+ENGINE = InnoDB
+DEFAULT CHARACTER SET = utf8mb4
+COLLATE = utf8mb4_0900_ai_ci;
+
 -- INSERT initial admin --
 INSERT INTO `cst-341-clcproject`.`users` (`FIRST_NAME`, `LAST_NAME`, `EMAIL`, `PHONE_NUMBER`, `USER_NAME`, `PASSWORD`, `ROLE`) VALUES 
 										 ('admin', 'admin', 'admin@admin.com', '(111)111-1111', 'admin', 'password', 1);

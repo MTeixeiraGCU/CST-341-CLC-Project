@@ -1,5 +1,6 @@
 package com.gcu.controller;
 
+import javax.servlet.http.HttpSession;
 import javax.validation.Valid;
 
 import org.springframework.beans.factory.annotation.Autowired;
@@ -13,10 +14,16 @@ import org.springframework.web.servlet.ModelAndView;
 import com.gcu.business.UserBusinessServiceInterface;
 import com.gcu.model.User;
 
-
+/**
+ * This class is setup as a Spring controller to be used for mapping user registration.
+ *
+ */
 @Controller
 public class RegistrationController {
-		
+	
+	@Autowired
+	private HttpSession session;
+	
 	@Autowired
 	private UserBusinessServiceInterface userBusinessService;
 	
@@ -31,7 +38,11 @@ public class RegistrationController {
 			return new ModelAndView("Registration", "user", user);
 		} 
 		else {
-			if(userBusinessService.RegisterUser(user.getFirstName(), user.getLastName(), user.getEmail(), user.getPhoneNumber(), user.getUserName(), user.getPassword())) {
+			if(userBusinessService.CheckDuplicateUserName(user.getUserName())) {
+				session.setAttribute("msg", "That Username is already in use!");
+				return new ModelAndView("Registration", "user", user);
+			}
+			else if(userBusinessService.RegisterUser(user.getFirstName(), user.getLastName(), user.getEmail(), user.getPhoneNumber(), user.getUserName(), user.getPassword())) {
 				return new ModelAndView("RegistrationSuccess", "user", user);
 			} 
 			else {

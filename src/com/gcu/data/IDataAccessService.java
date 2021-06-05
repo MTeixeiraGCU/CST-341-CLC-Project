@@ -4,8 +4,6 @@ import java.util.List;
 
 /**
  * This interface is used to design simple database CRUD operations for multiple model types
- * 
- * @author Marc
  *
  * @param <T> The type of model object that the implementing class is designed for
  */

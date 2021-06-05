@@ -50,6 +50,14 @@
 		         
 	         </tr>
 	         
+	         <tr>
+	         	<td><form:label id="role" path="role">Role: </form:label></td>
+	         	<td><form:select path="role">
+	         		<form:option value="0" label="None" />
+	         		<form:option value="1" label="Admin" /> 
+	         	</form:select></td>
+	         </tr>
+	         
 	        <tr>
 	        	<td>
 			        <div class="invalid-feedback">
@@ -62,4 +70,17 @@
 		<input class="btn btn-primary" type="submit" value="Submit"/>
 	</form:form>
 </div>
+
+<script>
+function setup() {
+	
+	//hide some fields from none-admins
+	if(!${sessionScope.admin}) {
+		$("label#role").attr("hidden", "true");
+		$("select#role").attr("hidden", "true");
+	}
+}
+
+$(document).ready(setup);
+</script>
     

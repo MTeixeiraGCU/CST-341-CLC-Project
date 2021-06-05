@@ -35,15 +35,15 @@
 				<td>
 					<div class="card">
 						
-		 					<img src="resources/img/defaultBook.png" alt="${book.title}" style="width:100%" onclick="window.location.href='editBook?isbn=${book.isbn}'">
-		 					<div class="container" onclick="window.location.href='editBook?isbn=${book.isbn}'">
+		 					<img src="resources/img/defaultBook.png" alt="${book.title}" style="width:100%" onclick="window.location.href='/CLCProject/editBook?isbn=${book.isbn}'">
+		 					<div class="container" onclick="window.location.href='/CLCProject/editBook?isbn=${book.isbn}'">
 			   					<h4><b>${book.title}</b></h4>
 			   					<p>Author: ${book.author}</p>
 			   					<p>ISBN: ${book.isbn}</p>
 			   					<p>Publisher: ${book.publisher}</p>
 			   					<p>Publication Date: ${book.publicationDate}</p>
 		 					</div>
-		 					<a class="addButton" href="#">Add</a>
+		 					<button class="addButton" onclick="addBook('${book.isbn}')">Add</button>
 		 					<c:if test="${sessionScope.admin}" >
 		 						<a class="editButton" href="editBook?isbn=${book.isbn}" >Edit</a>
 		 					</c:if>
@@ -58,6 +58,27 @@
 
 <script>
 
+	/* script for adding book to library*/
+	function addBook(isbn) {
+		$.ajax(
+			{
+				type: "GET",
+				url: "/CLCProject/library/add?isbn=" + isbn,
+				dataType: "json",
+				success: function(result)
+				{
+					var parsedString = JSON.parse(result);
+					alert(parsedString.d);
+				},
+				error: function (xhr, ajaxOptions, thrownError) 
+				{
+					alert(xhr.status);
+					alert(thrownError);
+				}
+			}
+		);		
+	}
+
 	/* When the user clicks on the button,
 	toggle between hiding and showing the dropdown content */
 	function myFunction() {
@@ -70,7 +91,6 @@
 		  }
 	  }
 	}
-	
 	function filterFunction() {
 	  var input, filter, ul, li, a, i, counter;
 	  counter = 0;

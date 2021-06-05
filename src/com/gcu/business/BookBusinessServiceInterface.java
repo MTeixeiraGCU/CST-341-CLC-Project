@@ -4,6 +4,10 @@ import java.util.List;
 
 import com.gcu.model.EBook;
 
+/**
+ * This interface is designed as a business layer for handling EBook related logic
+ *
+ */
 public interface BookBusinessServiceInterface {
 
 	public EBook getBook(String isbn);
