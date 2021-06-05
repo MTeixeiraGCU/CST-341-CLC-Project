@@ -23,8 +23,8 @@
 					
 					 <tr class="form-group">
 			         
-				         <td><form:label path="password">Password: </form:label></td>
-				         <td><form:password path="password"/></td>
+				         <td><form:label id="password" path="password">Password: </form:label></td>
+				         <td><form:password id="password" path="password"/></td>
 				         <td>
 				         	<div class="invalid-feedback">
 				        		<form:errors path="password" />
@@ -40,7 +40,7 @@
 			        	</td>
 			         </tr>
 			    </table>
-		        <input class="btn btn-primary" type="submit" value="Submit"/>
+		        <input class="btn btn-primary" id="sub" type="submit" value="Submit"/>
 		  	</form:form>
 		
 		</div>
@@ -50,7 +50,35 @@
 <script>
 $(document).ready(function(){
 	  $("input#username").focus(function(){
-		    $("label#username").animate({"font-size": "20px"}, 1000);
+		    $("label#username").animate({"font-size": "20px"}, 500);
+		    $("input#username").animate({"font-size": "20px"}, 500);
+		    $("input#username").css('color', 'blue');  
 	  }); 
+	  
+	  $("input#username").blur(function(){
+		    $("label#username").animate({"font-size": "16px"}, 500);
+		    $("input#username").animate({"font-size": "16px"}, 500);
+	  }); 
+	  
+	  $("input#password").focus(function(){
+		    $("label#password").animate({"font-size": "20px"}, 500);
+		    $("input#password").animate({"font-size": "20px"}, 500);
+	  }); 
+	  
+	  $("input#password").blur(function(){
+		    $("label#password").animate({"font-size": "16px"}, 500);
+		    $("input#password").animate({"font-size": "16px"}, 500);
+	  }); 
+	  $("input#sub").hover(function(){
+		  $("label#sub").animate({"font-size": "20px"}, 500);
+		  $("input#sub").animate({"font-size": "20px"}, 500);
+		  $("input#sub").fadin("background-color:blue");
+		  $('.button').animate( { deg: 180 }, {duration: 1200, step: function(now) 
+			  {
+		  		        $(this).css({ transform: 'rotate(' + now + 'deg)' });
+			  }
+		    }
+		  );
 	});
+});
 </script>
