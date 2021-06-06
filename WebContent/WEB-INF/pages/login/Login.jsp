@@ -40,7 +40,7 @@
 			        	</td>
 			         </tr>
 			    </table>
-		        <input class="btn btn-primary" id="sub" type="submit" value="Submit"/>
+		        <input class="btn" id="sub" type="submit" value="Submit"/>
 		  	</form:form>
 		
 		</div>
@@ -69,16 +69,17 @@ $(document).ready(function(){
 		    $("label#password").animate({"font-size": "16px"}, 500);
 		    $("input#password").animate({"font-size": "16px"}, 500);
 	  }); 
-	  $("input#sub").hover(function(){
-		  $("label#sub").animate({"font-size": "20px"}, 500);
-		  $("input#sub").animate({"font-size": "20px"}, 500);
-		  $("input#sub").fadin("background-color:blue");
-		  $('.button').animate( { deg: 180 }, {duration: 1200, step: function(now) 
-			  {
-		  		        $(this).css({ transform: 'rotate(' + now + 'deg)' });
-			  }
-		    }
-		  );
-	});
+	  
+	  $("input#sub").mouseover(function(){
+		  $(this).stop();
+		  $(this).animate({"font-size": "20px"}, 500);
+		  $(this).css("background-color", "lightblue");
+	  });
+	  
+	  $("input#sub").mouseout(function(){
+		  $(this).stop();
+		  $(this).animate({"font-size": "16px"}, 500);
+		  $(this).css("background-color", "lightgray");
+	  });
 });
 </script>

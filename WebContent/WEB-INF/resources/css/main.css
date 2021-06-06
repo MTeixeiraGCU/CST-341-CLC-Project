@@ -236,3 +236,7 @@ table.bookCards td {
   background-color: #919191;
   color: white;
 }
+
+.btn {
+	border: none;
+}

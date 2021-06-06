@@ -75,7 +75,7 @@
 			</tr>
 			
 		</table>
-        <input type="submit" class="btn btn-primary" id="sub" value="Submit" />
+        <input type="submit" class="btn" id="sub" value="Submit" />
         
 	</form:form>
 </div>
@@ -109,7 +109,8 @@ $(document).ready(function(){
 	  $("input#mail").blur(function(){
 		    $("label#mail").animate({"font-size": "16px"}, 500);
 		    $("input#mail").animate({"font-size": "16px"}, 500);
-	  }); 
+	  });
+	  
 	  $("input#phonenumber").focus(function(){
 		    $("label#phonenumber").animate({"font-size": "20px"}, 500);
 		    $("input#phonenumber").animate({"font-size": "20px"}, 500);
@@ -118,7 +119,8 @@ $(document).ready(function(){
 	  $("input#phonenumber").blur(function(){
 		    $("label#phonenumber").animate({"font-size": "16px"}, 500);
 		    $("input#phonenumber").animate({"font-size": "16px"}, 500);
-	  }); 
+	  });
+	  
 	  $("input#username").focus(function(){
 		    $("label#username").animate({"font-size": "20px"}, 500);
 		    $("input#username").animate({"font-size": "20px"}, 500);
@@ -128,6 +130,7 @@ $(document).ready(function(){
 		    $("label#username").animate({"font-size": "16px"}, 500);
 		    $("input#username").animate({"font-size": "16px"}, 500);
 	  }); 
+	  
 	  $("input#pass").focus(function(){
 		    $("label#pass").animate({"font-size": "20px"}, 500);
 		    $("input#pass").animate({"font-size": "20px"}, 500);
@@ -136,17 +139,18 @@ $(document).ready(function(){
 	  $("input#pass").blur(function(){
 		    $("label#pass").animate({"font-size": "16px"}, 500);
 		    $("input#pass").animate({"font-size": "16px"}, 500);
-		    $("input#sub").hover(function(){
-				  $("label#sub").animate({"font-size": "20px"}, 500);
-				  $("input#sub").animate({"font-size": "20px"}, 500);
-				  $("input#sub").fadin("background-color:blue");
-				  $('.button').animate( { deg: 180 }, {duration: 1200, step: function(now) 
-					  {
-				  		        $(this).css({ transform: 'rotate(' + now + 'deg)' });
-					  }
-				    }
-				  );
-			});
-		});
+	  });
+	  
+	  $("input#sub").mouseover(function(){
+		  $(this).stop();
+		  $(this).animate({"font-size": "20px"}, 500);
+		  $(this).css("background-color", "lightblue");
+	  });
+	  
+	  $("input#sub").mouseout(function(){
+		  $(this).stop();
+		  $(this).animate({"font-size": "16px"}, 500);
+		  $(this).css("background-color", "lightgray");
+	  });
 });
 </script>
