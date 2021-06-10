@@ -8,7 +8,7 @@
 	
 	<div class="collapse navbar-collapse" id="navbarCollapse">
 		<div class="navbar-nav">
-			<a class="nav-item nav-link<c:if test='${requestScope["javax.servlet.forward.request_uri"] == "/CLCProject/"}'> active</c:if>" href="">Home</a>
+			<a class="nav-item nav-link<c:if test='${requestScope["javax.servlet.forward.request_uri"] == "/CLCProject/"}'> active</c:if>" href="/CLCProject/">Home</a>
 			<a class="nav-item nav-link<c:if test='${requestScope["javax.servlet.forward.request_uri"] == "/CLCProject/about"}'> active</c:if>" href="/CLCProject/about">About</a>
 			<a class="nav-item nav-link<c:if test='${requestScope["javax.servlet.forward.request_uri"] == "/CLCProject/contact"}'> active</c:if>" href="/CLCProject/contact">Contact</a>
 		</div>

@@ -2,59 +2,48 @@
     pageEncoding="ISO-8859-1"%>
 <%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
     
-<div style="padding-left:16px">
+<div class="container">
   <h2>TOP TREANDING TITLES</h2>
   <p>Welcome, millions of clients are chiming into our site to review the newest titles available for download today! Our team of expert are always researching high demand of titles that our clients are in search of and willing to provide nothing but the best for consumers to read.</p>
   <p>If you are ready to start reviewing the most popular titles, please start downloading now.</p>
-</div>
 
-<h2>Book search and selection</h2>
-<p>Click on the button to open the dropdown menu, and use the input field to search for a specific book title.</p>
 
-<div class="dropdown">
-  <button onclick="myFunction()" class="dropbtn">Browse Books</button>
-  <div id="myDropdown" class="dropdown-content">
-    <input type="text" placeholder="Search.." id="myInput" onkeyup="filterFunction()"/>
-    <c:forEach var="book" items="${books}" varStatus="counter">
-    	<a href="editBook?isbn=${book.isbn}">${book.title}</a>
-    </c:forEach>
-
-  </div>
-</div>
-
-<table class="bookCards">
-	<tr>
-			<c:forEach var="book" items="${books}" varStatus="counter">
-			
-				<!-- Check for incomplete row of cards at the end of the list and close that row -->
-				<c:if test="${not counter.first and counter.index % 3 == 0}">
-					<c:out value="</tr>" escapeXml="false" />
-					<c:out value="<tr>" escapeXml="false" />
-				</c:if>
-					
-				<td>
-					<div class="card">
-						
-		 					<img src="resources/img/defaultBook.png" alt="${book.title}" style="width:100%" onclick="window.location.href='/CLCProject/editBook?isbn=${book.isbn}'">
-		 					<div class="container" onclick="window.location.href='/CLCProject/editBook?isbn=${book.isbn}'">
-			   					<h4><b>${book.title}</b></h4>
-			   					<p>Author: ${book.author}</p>
-			   					<p>ISBN: ${book.isbn}</p>
-			   					<p>Publisher: ${book.publisher}</p>
-			   					<p>Publication Date: ${book.publicationDate}</p>
-		 					</div>
-		 					<button class="addButton" onclick="addBook('${book.isbn}')">Add</button>
-		 					<c:if test="${sessionScope.admin}" >
-		 						<a class="editButton" href="editBook?isbn=${book.isbn}" >Edit</a>
-		 					</c:if>
-					</div>
-				</td>
-				
-			</c:forEach>
-			
-	</tr>
+	<h2 class="text-center my-3">Book search and selection</h2>
+	<p>Click on the button to open the dropdown menu, and use the input field to search for a specific book title.</p>
 	
-</table>
+	<div class="dropdown">
+	  <button onclick="myFunction()" class="dropbtn">Browse Books</button>
+	  <div id="myDropdown" class="dropdown-content">
+	    <input type="text" placeholder="Search.." id="myInput" onkeyup="filterFunction()"/>
+	    <c:forEach var="book" items="${books}" varStatus="counter">
+	    	<a href="editBook?isbn=${book.isbn}">${book.title}</a>
+	    </c:forEach>
+	
+	  </div>
+	</div>
+</div>
+<div class="container">
+	<div class="row">
+		<c:forEach var="book" items="${books}" varStatus="counter">
+			<div class="col-md-4 col-6 p-1">
+				<div class="card h-100">
+ 					<img src="resources/img/defaultBook.png" alt="${book.title}" style="width:100%" onclick="window.location.href='/CLCProject/editBook?isbn=${book.isbn}'">
+ 					<div class="container" onclick="window.location.href='/CLCProject/editBook?isbn=${book.isbn}'">
+	   					<h4><b>${book.title}</b></h4>
+	   					<p>Author: ${book.author}</p>
+	   					<p>ISBN: ${book.isbn}</p>
+	   					<p>Publisher: ${book.publisher}</p>
+	   					<p>Publication Date: ${book.publicationDate}</p>
+ 					</div>
+ 					<button class="addButton" onclick="addBook('${book.isbn}')">Add</button>
+ 					<c:if test="${sessionScope.admin}" >
+ 						<a class="editButton" href="editBook?isbn=${book.isbn}" >Edit</a>
+ 					</c:if>
+ 				</div>
+			</div>
+		</c:forEach>
+	</div>
+</div>
 
 <script>
 
