@@ -67,15 +67,6 @@ input.form-control:disabled {
 	opacity: 0.7;
 }
 
-/* style for each cell on the book list */
-table.bookCards td {
-	padding: 30px;
-}
-
-.invalid-feedback {
-	color: red;
-}
-
 .dropbtn {
   background-color: #04AA6D;
   color: white;
@@ -124,9 +115,13 @@ table.bookCards td {
   display: block;
 }
 
-.dropdown a:hover {background-color: #ddd;}
+.dropdown a:hover {
+	background-color: #ddd;
+}
 
-.show {display: block;}
+.show {
+	display: block;
+}
 
 #users {
   font-family: Arial, Helvetica, sans-serif;
