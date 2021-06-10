@@ -9,6 +9,8 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.ModelMap;
 import org.springframework.validation.BindingResult;
+import org.springframework.validation.FieldError;
+import org.springframework.validation.ObjectError;
 import org.springframework.web.bind.annotation.ModelAttribute;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
@@ -50,13 +52,19 @@ public class UserController {
 	@RequestMapping(path="/editUser", method=RequestMethod.POST)
 	public ModelAndView edit(@ModelAttribute("user") @Valid User user, BindingResult result, ModelMap model) {
 		if(result.hasErrors()) {
-			return new ModelAndView("UserView", "user", user);
+			//search through all the errors
+			for(ObjectError error : result.getAllErrors()) {
+				//if it is not a password or userName error, continue on to notify user
+				if(!((FieldError)error).getField().equals("password") && !((FieldError)error).getField().equals("userName")) {
+					return new ModelAndView("UserView", "user", user);
+				}
+			}
 		} 
-		else {
-			userBusinessService.UpdateUser(user);
-			model.addAttribute("msg", "User has been updated into the database!");
-			return new ModelAndView("ProfileSuccess", "user", user);
-		}
+
+		//no errors were encountered so continue on to update user
+		userBusinessService.UpdateUser(user);
+		model.addAttribute("msg", "User has been updated into the database!");
+		return new ModelAndView("ProfileSuccess", "user", user);
 	}
 	
 	@RequestMapping(path="/userList", method=RequestMethod.GET)

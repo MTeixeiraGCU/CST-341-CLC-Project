@@ -55,11 +55,14 @@ public class UserDataAccessService implements IDataAccessService<User> {
 		}
 	}
 
+	/**
+	 * This method updates user information except for password and userName
+	 */
 	@Override
 	public void update(User t) {
 		
-		String query = "UPDATE users SET FIRST_NAME = ?, LAST_NAME = ?, EMAIL = ?, PHONE_NUMBER = ?, PASSWORD = ?, ROLE = ? WHERE USER_NAME = ?";
-		int result = jdbcTemplate.update(query, t.getFirstName(), t.getLastName(), t.getEmail(), t.getPhoneNumber(), t.getPassword(), t.getRole(), t.getUserName());
+		String query = "UPDATE users SET FIRST_NAME = ?, LAST_NAME = ?, EMAIL = ?, PHONE_NUMBER = ?, ROLE = ? WHERE USER_NAME = ?";
+		int result = jdbcTemplate.update(query, t.getFirstName(), t.getLastName(), t.getEmail(), t.getPhoneNumber(), t.getRole(), t.getUserName());
 		if(result == 1) {
 			System.out.println("Row was updated successfully!");
 		}

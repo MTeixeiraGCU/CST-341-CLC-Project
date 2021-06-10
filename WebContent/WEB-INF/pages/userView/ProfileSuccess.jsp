@@ -1,8 +1,8 @@
 <%@ page language="java" contentType="text/html; charset=ISO-8859-1"
     pageEncoding="ISO-8859-1"%>
 
-    <div class="container">
-	<h3>${user.userName}'s Profile Was Updated Successfully!</h3>
+    <div class="container mt-3">
+	<h3 class="my-3">${user.userName}'s Profile Was Updated Successfully!</h3>
 	<hr />
 	
 	<div class="row">
