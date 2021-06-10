@@ -24,7 +24,7 @@ public class User {
 	@Size(min=5, max=50, message="Email name must be be at least 5 characters!")
 	private String email;
 	
-	@Pattern(regexp="\\(\\d{3}\\)\\d{3}-\\d{4}",message="Phone number must be in the formt (XXX)XXX-XXXX")
+	@Pattern(regexp="\\(\\d{3}\\)\\d{3}-\\d{4}",message="Phone number must be in the format (XXX)XXX-XXXX")
 	private String phoneNumber;
 	
 	@NotNull(message="You must enter a value for your User Name!")
