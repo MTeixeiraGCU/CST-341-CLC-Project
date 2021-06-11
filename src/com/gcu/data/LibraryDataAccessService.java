@@ -51,7 +51,7 @@ public class LibraryDataAccessService implements LibraryDataAccessServiceInterfa
 	@Override
 	public boolean removeBook(String userName, String isbn) {
 		
-		String query = "DELETE FROM library WHERE USED_ID = ? AND BOOK_ID = ?";
+		String query = "DELETE FROM library WHERE USER_ID = ? AND BOOK_ID = ?";
 		int result = jdbcTemplate.update(query, userName, isbn);
 		if(result == 1) {
 			return true;

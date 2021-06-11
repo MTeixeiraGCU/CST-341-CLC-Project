@@ -32,11 +32,11 @@ public class LibraryController {
 	
 	@RequestMapping(path="/add", method=RequestMethod.GET)
 	@ResponseBody
-	public String addBook(@RequestParam("isbn") String isbn) {
+	public Boolean addBook(@RequestParam("isbn") String isbn) {
 		if(libraryBusinessService.addBook(session.getAttribute("userName").toString(), isbn)) {
-			return "Book was added successfully!";
+			return true;
 		}
-		return "Could not add book to your library!";
+		return false;
 	}
 	
 	@RequestMapping(path="/remove", method=RequestMethod.GET)

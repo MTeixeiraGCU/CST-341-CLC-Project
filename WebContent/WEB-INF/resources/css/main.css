@@ -15,12 +15,6 @@ body {
   background-color: #f5f5f5;
 }
 
-/* block styles for book card buttons */
-.cardButton p{
-	width: 100%;
-	margin: 0%;
-}
-
 /* Add button at the bottom of eBook cards */
 .card button.addButton {
   background-color: #008000;
@@ -41,8 +35,12 @@ body {
 	background-color: #005b00;
 }
 
+.card a.editButton:hover, .card button.removeButton:hover {
+	background-color: #910000;
+}
+
 /* Edit button at the bottom of eBook cards */
-.card a.editButton {
+.card a.editButton, .card button.removeButton {
   background-color: #400000;
   width: 100%;
   border: none;

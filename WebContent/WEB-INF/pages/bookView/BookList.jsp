@@ -2,7 +2,7 @@
     pageEncoding="ISO-8859-1"%>
 <%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
     
-<div class="container">
+<div class="container mt-3">
   <h2>TOP TREANDING TITLES</h2>
   <p>Welcome, millions of clients are chiming into our site to review the newest titles available for download today! Our team of expert are always researching high demand of titles that our clients are in search of and willing to provide nothing but the best for consumers to read.</p>
   <p>If you are ready to start reviewing the most popular titles, please start downloading now.</p>
@@ -22,18 +22,24 @@
 	  </div>
 	</div>
 </div>
-<div class="container">
+
+<div class="container mt-3">
 	<div class="row">
 		<c:forEach var="book" items="${books}" varStatus="counter">
-			<div class="col-md-4 col-6 p-1">
-				<div class="card h-100">
- 					<img src="resources/img/${book.image}.png" alt="${book.title}" style="width:100%" onclick="window.location.href='/CLCProject/editBook?isbn=${book.isbn}'">
- 					<div class="container" onclick="window.location.href='/CLCProject/editBook?isbn=${book.isbn}'">
-	   					<h4><b>${book.title}</b></h4>
-	   					<p>Author: ${book.author}</p>
-	   					<p>ISBN: ${book.isbn}</p>
-	   					<p>Publisher: ${book.publisher}</p>
-	   					<p>Publication Date: ${book.publicationDate}</p>
+			<c:if test="${counter.index % 4 == 0}">
+				<c:out value="</div>" escapeXml="false"/>
+				<c:out value="<div class='row'>" escapeXml="false"/>
+			</c:if>
+			
+			<div class="col-sm-3" style="width: 17rem">
+				<div class="card">
+ 					<img src="resources/img/${book.image}.png" alt="${book.title}" class="card-img-top" onclick="window.location.href='/CLCProject/editBook?isbn=${book.isbn}'">
+ 					<div class="card-body" onclick="window.location.href='/CLCProject/editBook?isbn=${book.isbn}'">
+	   					<h4 class="card-title"><b>${book.title}</b></h4>
+	   					<p class="card-text">Author: ${book.author}</p>
+	   					<p class="card-text">ISBN: ${book.isbn}</p>
+	   					<p class="card-text">Publisher: ${book.publisher}</p>
+	   					<p class="card-text">Publication Date: ${book.publicationDate}</p>
  					</div>
  					<button class="addButton" onclick="addBook('${book.isbn}')">Add</button>
  					<c:if test="${sessionScope.admin}" >
@@ -56,8 +62,12 @@
 				dataType: "json",
 				success: function(result)
 				{
-					var parsedString = JSON.parse(result);
-					alert(parsedString.d);
+					if(result) {
+						alert("Book was added successfully!");
+					}
+					else {
+						alert("Could not add book to your library!");
+					}
 				},
 				error: function (xhr, ajaxOptions, thrownError) 
 				{
