@@ -62,6 +62,14 @@
 	        	</div>
 			</div>
         </div>
+   
+         
+        <div class="form-group row">
+        	<form:label path="image" class="col-sm-2 col-form-label">image: </form:label>
+        	<div class="col-sm-10">
+        		<form:input class="form-control" path="image" />
+        	</div>
+        </div>
         
         <div class="form-group row">
         	<div class="col-sm-10 offset-sm-2">
@@ -71,6 +79,7 @@
 		
 	</form:form>
 </div>
+
 
 <script>
 	 function setup(){
