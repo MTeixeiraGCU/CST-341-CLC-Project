@@ -104,4 +104,21 @@ public class UserController {
 		//TODO: add code here to catch deletion of logged in user.
 		return new ModelAndView("index", "user", user);
 	}
+	
+	@RequestMapping(path="/changePassword", method=RequestMethod.GET)
+	public String navToChangePassword(ModelMap model) {
+		if(session.getAttribute("user") == null) {
+			model.addAttribute("msg", "You must login and have access before you can change your password!");
+			return "index";
+		}
+		
+		//good to change password
+		return "PasswordChange";
+	}
+	
+	@RequestMapping(path="/changePassword", method=RequestMethod.POST)
+	public String changePassword(ModelMap model) {
+		//TODO: add change password business code here.
+		return "PasswordChange";
+	}
 }
