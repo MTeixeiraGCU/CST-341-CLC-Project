@@ -10,17 +10,26 @@
 	
 		<div class="form-group row">
 			<label for="oldPassword" class="col-sm-2 col-form-label">Password:</label>
-			<input type="password" id="oldPassword" name="oldPassword" class="form-control" placeHolder="current password" />
+			<div class="col-sm-10">
+				<input type="password" id="oldPassword" name="oldPassword" class="form-control" placeHolder="Your Old Password" />
+			</div>
 		</div>
 		
 		<div class="form-group row">
 			<label for="newPassword" class="col-sm-2 col-form-label">New Password:</label>
-			<input type="password" id="newPassword" name="newPassword" class="form-control" placeHolder="" />
+			<div class="col-sm-10">
+				<input type="password" id="newPassword" name="newPassword" class="form-control" placeHolder="" />
+			</div>
 		</div>
 		
 		<div class="form-group row">
 			<label for="confirmPassword" class="col-sm-2 col-form-label">Confirm New Password:</label>
-			<input type="password" id="confirmPassword" name="confirmPassword" class="form-control" placeHolder="" />
+			<div class="col-sm-10">
+				<input type="password" id="confirmPassword" name="confirmPassword" class="form-control" placeHolder="" />
+				<div class="invalid-feedback">
+	        		
+	       		</div>
+			</div>
 		</div>
 		
 		<div class="form-group row">
@@ -32,3 +41,28 @@
 	</form>
 
 </div>
+
+<script>
+
+$(document).ready(function () {
+    $('form').submit(function(event) {
+        savePassword(event);
+    });
+    
+    $(":password").keyup(function(){
+        if($("#newPassword").val() != $("#confirmPassword").val()){
+            $("#confirmPassword").addClass('is-invalid');
+            $(".invalid-feedback").html("Passwords must match!");
+        }else{
+        	$("#confirmPassword").removeClass('is-invalid');
+        	$(".invalid-feedback").html("");
+        }
+    });
+});
+
+function savePassword(event) {
+	
+}
+
+
+</script>

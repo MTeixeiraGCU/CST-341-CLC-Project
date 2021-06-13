@@ -107,7 +107,7 @@ public class UserController {
 	
 	@RequestMapping(path="/changePassword", method=RequestMethod.GET)
 	public String navToChangePassword(ModelMap model) {
-		if(session.getAttribute("user") == null) {
+		if(session.getAttribute("userName") == null) {
 			model.addAttribute("msg", "You must login and have access before you can change your password!");
 			return "index";
 		}

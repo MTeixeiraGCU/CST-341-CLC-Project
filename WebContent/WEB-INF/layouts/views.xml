@@ -11,7 +11,7 @@
     <definition name="index" extends="DefaultTemplate">
     	<put-attribute name="body" value="/WEB-INF/pages/index.jsp" />
     </definition>
-    <definition name="PasswordUpdate" extends="DefaultTemplate">
+    <definition name="PasswordChange" extends="DefaultTemplate">
     	<put-attribute name="body" value="/WEB-INF/pages/userView/PasswordUpdate.jsp" />
     </definition>
     <definition name="Library" extends="DefaultTemplate">

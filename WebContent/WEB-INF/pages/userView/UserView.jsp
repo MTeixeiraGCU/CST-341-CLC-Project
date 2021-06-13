@@ -87,6 +87,13 @@
 		</div>
 		
 	</form:form>
+	
+	<div class="row">
+		<div class="col-sm-6 offset-sm-2">
+			<button class="btn btn-primary" onclick="window.location.href='changePassword'">Change password</button>
+		</div>
+	</div>
+	
 </div>
 
 <script>
