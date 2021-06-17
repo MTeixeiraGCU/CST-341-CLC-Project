@@ -60,7 +60,7 @@ public class BookBusinessService implements BookBusinessServiceInterface {
 	public boolean deleteBook(EBook eBook) {
 		bookDataAccessService.delete(eBook);
 		
-		//TODO: add code here to detect proper book deletion
+		//TODO: Add code here to detect proper book deletion
 		return true;
 	}
 	

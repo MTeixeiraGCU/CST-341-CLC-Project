@@ -60,7 +60,7 @@ public class UserController {
 	 * @param user The User object containing the user's updated information.
 	 * @param result This holds any form errors while trying to validate the passed User object. userName and password fileds will be ignored.
 	 * @param model This is the model used to give feedback in the response.
-	 * @return
+	 * @return A new ProfileSuccess view for a completed update, or back to the UserView page with errors.
 	 */
 	@RequestMapping(path="/editUser", method=RequestMethod.POST)
 	public ModelAndView edit(@ModelAttribute("user") @Valid User user, BindingResult result, ModelMap model) {
@@ -131,7 +131,7 @@ public class UserController {
 		}
 
 		//return to home page
-		//TODO: add code here to catch deletion of logged in user.
+		//TODO: Add code here to catch deletion of logged in user.
 		return new ModelAndView("index", "user", user);
 	}
 	
@@ -158,7 +158,7 @@ public class UserController {
 	 */
 	@RequestMapping(path="/changePassword", method=RequestMethod.POST)
 	public String changePassword(ModelMap model) {
-		//TODO: add change password business code here.
+		//TODO: Add change password business code here.
 		return "PasswordChange";
 	}
 }
