@@ -44,12 +44,12 @@ public class UserBusinessService implements UserBusinessServiceInterface{
 	
 	/**
 	 * This method attempts to add the user to the database. Does not check for duplicate userName.
-	 * @param firstName 
-	 * @param lastName
-	 * @param email
-	 * @param phoneNumber
-	 * @param userName
-	 * @param password
+	 * @param firstName The user's first name.
+	 * @param lastName The user's last name.
+	 * @param email The user's email address
+	 * @param phoneNumber The user's phone number.
+	 * @param userName The user's selected user name.
+	 * @param password The password for the user's new login.
 	 * @return true if the user was registered into the database.
 	 */
 	@Override
@@ -103,7 +103,7 @@ public class UserBusinessService implements UserBusinessServiceInterface{
 
 	/**
 	 * This method returns the entire list of users in the database.
-	 * @return A complete List<User> of all the registered users in the database.
+	 * @return A complete List&lt;User&gt; of all the registered users in the database.
 	 */
 	@Override
 	public List<User> getUsers() {

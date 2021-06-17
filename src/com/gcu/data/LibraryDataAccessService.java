@@ -27,7 +27,7 @@ public class LibraryDataAccessService implements LibraryDataAccessServiceInterfa
 	/**
 	 * This method gets a list of books that are in the given users library.
 	 * @param userName the user to look up the library for.
-	 * @return a List<EBook> that contains all of the books in the users library.
+	 * @return a List&lt;EBook&gt; that contains all of the books in the users library.
 	 */
 	@Override
 	public List<EBook> getBooks(String userName) {

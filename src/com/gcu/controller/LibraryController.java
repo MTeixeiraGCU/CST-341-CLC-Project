@@ -30,6 +30,11 @@ public class LibraryController {
 	@Autowired
 	private LibraryBusinessServiceInterface libraryBusinessService;
 	
+	/**
+	 * This method accepts request for users to add books to their personal library.
+	 * @param isbn The ISBN of the EBook to add given as a Request Parameter.
+	 * @return true if the book was added,  false otherwise.
+	 */
 	@RequestMapping(path="/add", method=RequestMethod.GET)
 	@ResponseBody
 	public Boolean addBook(@RequestParam("isbn") String isbn) {
@@ -39,6 +44,11 @@ public class LibraryController {
 		return false;
 	}
 	
+	/**
+	 * This method accepts requests for the user to remove a book from their personal library.
+	 * @param isbn The ISBN of the EBook to remove given as a Request Parameter.
+	 * @return true if the EBook was removed, false otherwise.
+	 */
 	@RequestMapping(path="/remove", method=RequestMethod.GET)
 	@ResponseBody
 	public Boolean removeBook(@RequestParam("isbn") String isbn) {
@@ -48,6 +58,11 @@ public class LibraryController {
 		return false;
 	}
 	
+	/**
+	 * This method accepts request for viewing a users library.
+	 * @param model This is the model used to give feedback in the response.
+	 * @return A new Library view containing all the EBooks in the users library.
+	 */
 	@RequestMapping(path="/library", method=RequestMethod.GET)
 	public ModelAndView NavToLibrary(ModelMap model) {
 		if(session.getAttribute("userName") != null)

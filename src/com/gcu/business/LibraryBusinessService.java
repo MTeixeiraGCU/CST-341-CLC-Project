@@ -19,7 +19,7 @@ public class LibraryBusinessService implements LibraryBusinessServiceInterface {
 	/**
 	 * This method takes in a username and returns a complete list of the books contained in their library.
 	 * @param userName the current user to look up the library for.
-	 * @return A complete List<EBook> of the users library.
+	 * @return A complete List&lt;EBook&gt; of the users library.
 	 */
 	@Override
 	public List<EBook> getLibrary(String userName) {

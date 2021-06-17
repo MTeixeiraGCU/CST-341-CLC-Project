@@ -31,6 +31,12 @@ public class BookController {
 	@Autowired
 	private BookBusinessServiceInterface bookBusinessService;
 	
+	/**
+	 * This method is an initial entry point for editing book information. 
+	 * @param isbn The book ISBN retrieved from the request parameter.
+	 * @param model This is the model used to give feedback in the response.
+	 * @return A new AddBook view with fields filled in already based on whether the user has access to edit the book.
+	 */
 	@RequestMapping(path="/editBook", method=RequestMethod.GET)
 	public ModelAndView editBook(@RequestParam("isbn") String isbn, ModelMap model)
 	{
@@ -46,6 +52,11 @@ public class BookController {
 		}
 	}
 	
+	/**
+	 * This method is the initial entry point for adding a new book to the system.
+	 * @param model This is the model used to give feedback in the response.
+	 * @return A new AddBook view with the fields emptied for new information to be added.
+	 */
 	@RequestMapping(path="/add", method=RequestMethod.GET)
 	public ModelAndView addBook(ModelMap model)
 	{
@@ -60,6 +71,13 @@ public class BookController {
 		}
 	}
 	
+	/**
+	 * This method is for handling submit request to add or edit books into the database.
+	 * @param eBook The request model object as an EBook to be updated or added.
+	 * @param result Contains any form errors based on the required EBook model validations
+	 * @param model This is the model used to give feedback in the response.
+	 * @return Returns a view back to AddBook if there were errors, otherwise gives an AdBookSuccess view.
+	 */
 	@RequestMapping(path="/addBook", method=RequestMethod.POST)
 	public ModelAndView addBook(@ModelAttribute("eBook") @Valid EBook eBook, BindingResult result, ModelMap model)
 	{
@@ -75,6 +93,11 @@ public class BookController {
 		
 	}
 	
+	/**
+	 * This method is for accessing and viewing the complete EBook list.
+	 * @param model This is the model used to give feedback in the response.
+	 * @return A new BookList view containg all the books inthe database.
+	 */
 	@RequestMapping(path="/bookList", method=RequestMethod.GET)
 	public ModelAndView NavToBookList(ModelMap model)
 	{
@@ -90,6 +113,12 @@ public class BookController {
 		}
 	}
 	
+	/**
+	 * This method is to access request to remove books from the database.
+	 * @param isbn The ISBN of the book to remove in the form of a request parameter.
+	 * @param model This is the model used to give feedback in the response.
+	 * @return A new index view with response messages for success or failure.
+	 */
 	@RequestMapping(path="/removeBook", method=RequestMethod.GET)
 	public ModelAndView removeBook(@RequestParam("isbn") String isbn, ModelMap model) {
 		
