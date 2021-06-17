@@ -27,11 +27,21 @@ public class RegistrationController {
 	@Autowired
 	private UserBusinessServiceInterface userBusinessService;
 	
+	/**
+	 * This method handles requests for navigation to the Registration page.
+	 * @return A new Registration view where the user can fill in the information.
+	 */
 	@RequestMapping (path="/register", method=RequestMethod.GET)	
 	public ModelAndView Navtoregister() {
 		return new ModelAndView("Registration", "user", new User());
 	}
 	
+	/**
+	 * This method handles POST requests for registering a new user
+	 * @param user The User object passed by the form.
+	 * @param result This holds any form errors that are used to validate the passed User object
+	 * @return A new RegistrationSuccess view if the user was added, or bakc to the form with errors otherwise.
+	 */
 	@RequestMapping(path="/registerUser", method = RequestMethod.POST)
 	public ModelAndView registerUser(@ModelAttribute("user") @Valid User user, BindingResult result) {
 		if(result.hasErrors()) {

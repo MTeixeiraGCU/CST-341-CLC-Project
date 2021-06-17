@@ -33,6 +33,12 @@ public class UserController {
 	@Autowired
 	private UserBusinessServiceInterface userBusinessService;
 	
+	/**
+	 * This method handles requests for users or admins to alter a user's profile information.
+	 * @param userName The user's name to alter in the database.
+	 * @param model This is the model used to give feedback in the response.
+	 * @return A new UserView view containing a form with the user's current information.
+	 */
 	@RequestMapping(path="/editUser", method=RequestMethod.GET)
 	public ModelAndView edit(@RequestParam("userName") String userName, ModelMap model) {
 		
@@ -49,6 +55,13 @@ public class UserController {
 		}
 	}
 	
+	/**
+	 * This method handles POST requests from the UserView page form to update a user's information.
+	 * @param user The User object containing the user's updated information.
+	 * @param result This holds any form errors while trying to validate the passed User object. userName and password fileds will be ignored.
+	 * @param model This is the model used to give feedback in the response.
+	 * @return
+	 */
 	@RequestMapping(path="/editUser", method=RequestMethod.POST)
 	public ModelAndView edit(@ModelAttribute("user") @Valid User user, BindingResult result, ModelMap model) {
 		if(result.hasErrors()) {
@@ -67,13 +80,30 @@ public class UserController {
 		return new ModelAndView("ProfileSuccess", "user", user);
 	}
 	
+	/**
+	 * This method handles requests to navigate to the userView. 
+	 * @param model This is the model used to give feedback in the response.
+	 * @return A new UserList view if the user has access, the home page otherwise.
+	 */
 	@RequestMapping(path="/userList", method=RequestMethod.GET)
 	public ModelAndView userList(ModelMap model)
 	{
-		List<User> users = userBusinessService.getUsers();
-		return new ModelAndView("UserList", "users", users);
+		if(session.getAttribute("admin").equals(true)) {
+			List<User> users = userBusinessService.getUsers();
+			return new ModelAndView("UserList", "users", users);
+		}
+		else {
+			model.addAttribute("msg", "That action requires administrator privileges!");
+			return new ModelAndView("index", "users", null);
+		}
 	}
 	
+	/**
+	 * This method handles requests to remove a user from the database.
+	 * @param userName The userName of the user to remove.
+	 * @param model This is the model used to give feedback in the response.
+	 * @return A new index view with the appropriate success or failure messages.
+	 */
 	@RequestMapping(path="/removeUser", method=RequestMethod.GET)
 	public ModelAndView removeUser(@RequestParam("userName") String userName, ModelMap model) {
 		
@@ -105,6 +135,11 @@ public class UserController {
 		return new ModelAndView("index", "user", user);
 	}
 	
+	/**
+	 * This method handles requests to navigate to a user's password change page.
+	 * @param model This is the model used to give feedback in the response.
+	 * @return A String that represents navigation to the PasswordChange page.
+	 */
 	@RequestMapping(path="/changePassword", method=RequestMethod.GET)
 	public String navToChangePassword(ModelMap model) {
 		if(session.getAttribute("userName") == null) {
@@ -116,6 +151,11 @@ public class UserController {
 		return "PasswordChange";
 	}
 	
+	/**
+	 * This method handles POST requests for a user to change their password.
+	 * @param model This is the model used to give feedback in the response.
+	 * @return A String that represents navigation to the PasswordChanged page.
+	 */
 	@RequestMapping(path="/changePassword", method=RequestMethod.POST)
 	public String changePassword(ModelMap model) {
 		//TODO: add change password business code here.

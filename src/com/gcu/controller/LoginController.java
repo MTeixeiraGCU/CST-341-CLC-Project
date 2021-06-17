@@ -28,11 +28,22 @@ public class LoginController {
 	@Autowired
 	private UserBusinessServiceInterface userBusinessService;
 	
+	/**
+	 * This method handles request to navigate to the login page.
+	 * @return A new Login view.
+	 */
 	@RequestMapping (path= "/login",method=RequestMethod.GET)	
 	public ModelAndView NavToLogin() {
 		return new ModelAndView("Login", "user", new UserLogin());
 	}
 	
+	/**
+	 * This method handles requests for user authentication and login.
+	 * @param user The UserLogin object containing the users credentials.  
+	 * @param result Carries any field errors while trying to validate the users UserLogin object data.
+	 * @param model This is the model used to give feedback in the response.
+	 * @return A new LoginSuccess view if the user was logged in, back to the previous Login view if not.
+	 */
 	@RequestMapping(path="/loginUser", method = RequestMethod.POST)
 	public ModelAndView LoginUser(@ModelAttribute("user") @Valid UserLogin user, BindingResult result, ModelMap model) {
 		if(result.hasErrors()) {
@@ -60,6 +71,10 @@ public class LoginController {
 		}
 	}
 	
+	/**
+	 * This method handles user logout requests.
+	 * @return A string to generate the Logout page.
+	 */
 	@RequestMapping (path= "/logout",method=RequestMethod.GET)	
 	public String LogoutUser() {
 		session.removeAttribute("userName");
