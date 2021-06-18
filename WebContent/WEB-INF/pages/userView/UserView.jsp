@@ -21,6 +21,8 @@
 		<c:set var="phoneNumberHasBindError">
 			<form:errors path="phoneNumber" />
 		</c:set>
+		
+		<img src="url" alt="Attach Optional Profile Image">
 	
 		<!-- Form fields -->
 		<div class="form-group row">
